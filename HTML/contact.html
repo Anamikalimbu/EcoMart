@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMart - Contact Us</title>
+    <!-- CSS Link  -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/contact.css">
+    <!-- Fonts/Icons Link  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Header Section  -->
+    <header>
+        <nav class="navbar flex  wrapper">
+            <a href="#" class="logo">EcoMart</a>
+            <!-- Desktop version -->
+            <ul class="navlist flex gap-3">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+            </ul>
+            <div class="desktop-action flex gap-2">
+                <a href="./cart.html" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span
+                        class="cart-value">0</span></a>
+                <a href="" class="hamburger"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <!-- Mobile version  -->
+            <ul class="mobile-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Part of Webpage  -->
+    <main>
+        <section>
+            <div class="container">
+                <h1>Get in Touch</h1>
+                <p>Share your feedback</p>
+
+                <!-- Contact form section -->
+                <div class="contact-box">
+                    <!-- Left side of the form -->
+                    <div class="container-left">
+                        <h3>Contact Us</h3>
+                        <!-- Form -->
+                        <form id="contactForm" onsubmit="return validateForm()" action="#">
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label>Name</label>
+                                    <input type="text" id="name" placeholder="Enter your Name">
+                                    <small class="error-message" id="nameError">Name is required.</small>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Phone</label>
+                                    <input type="text" id="phone" placeholder="+977 98xxxxxxxx">
+                                    <small class="error-message" id="phoneError">Phone number is required.</small>
+                                </div>
+                            </div>
+
+                            <!-- Input row for Email and Subject -->
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label>Email</label>
+                                    <input type="email" id="email" placeholder="youremail@gmail.com">
+                                    <small class="error-message" id="emailError">Email is required.</small>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Subject</label>
+                                    <input type="text" id="subject" placeholder="Inquiry">
+                                </div>
+                            </div>
+
+                            <!-- Label for Message textarea -->
+                            <label>Message</label>
+                            <textarea rows="10" id="message" placeholder="Enter your Message"></textarea>
+                            <small class="error-message" id="messageError">Message is required.</small>
+
+                            <button type="submit" class="button" id="submit">SEND MESSAGE</button>
+                        </form>
+                    </div>
+                    <!-- Right side with contact information -->
+                    <div class="container-right">
+                        <h3>Reach Us</h3>
+                        <!-- Table for contact information -->
+                        <table>
+                            <tr>
+                                <td>Email: </td>
+                                <td>info@gmail.com</td>
+                            </tr>
+
+                            <tr>
+                                <td>Phone: </td>
+                                <td>+977 9801988234, +977 9804913670</td>
+                            </tr>
+
+                            <tr>
+                                <td>Address: </td>
+                                <td>Itahari, Sunsari, Nepal</td>
+                            </tr>
+                        </table>
+
+                        <!-- Map section -->
+                        <div class="map">
+                            <!-- Google Map iframe -->
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7131.568318865358!2d87.29585653842318!3d26.65539236078316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6ea070e7b18b%3A0x2959e2a3e2bf54e0!2sItahari%20International%20College!5e0!3m2!1sen!2snp!4v1768742766476!5m2!1sen!2snp"
+                                width="800" height="275" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Section  -->
+    <footer>
+        <div class="footer-container wrapper">
+            <!-- Company Info Section -->
+            <div class="footer-section">
+                <h3>EcoMart</h3>
+                <p> Your trusted source for eco-friendly products. We're committed to sustainability, offering
+                    high-quality items that help reduce your environmental impact. Shop responsibly and make a
+                    difference!</p>
+                <div class="payment-methods">
+                    <h4>Payment Methods We Accept</h4>
+                    <div class="payment-icons">
+                        <i class="fa-solid fa-credit-card" title="creditcard"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i><button class="pay">esewa</button></i>
+                        <i><button class="pay">cash on delivery</button></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Itahari, Sunsari, Nepal</p>
+                <p><i class="fas fa-phone"></i> +977 9801988234, +977 9804913670</p>
+                <p><i class="fas fa-envelope"></i> info@ecomart.com</p>
+                <h4>Connect with us</h4>
+                <ul class="connect">
+                    <li><a href="https://www.linkedin.com/in/anamika-limbu-b01238340/"><i
+                                class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li><a href="https://github.com/Anamikalimbu"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
+            <!-- Help Section-->
+            <div class="footer-section help-section">
+                <h4>Help</h4>
+                <ul class="help-links">
+                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom wrapper">
+            <p>&copy; 2025 EcoMart. All rights reserved</p>
+        </div>
+    </footer>
+    <script>
+        // Select the hamburger icon, its inner <i> element, and mobile menu
+        const hamburger = document.querySelector('.hamburger');
+        const hamburgerIcon = document.querySelector('.hamburger i'); // Target the <i> inside the hamburger
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        // Add click event listener to hamburger
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior (href="")
+            mobileMenu.classList.toggle('mobile-menu-active'); // Toggle the active class to slide menu in/out
+
+            // Toggle the icon: bars when closed, X when open
+            if (mobileMenu.classList.contains('mobile-menu-active')) {
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-xmark');
+            } else {
+                hamburgerIcon.classList.remove('fa-xmark');
+                hamburgerIcon.classList.add('fa-bars');
+            }
+        });
+        // Cart counter
+        const cartValue = document.querySelector('.cart-value');
+        // Load cart count on page load
+        cartValue.textContent = localStorage.getItem('cartCount') || 0;
+        // Form validation function
+        function validateForm() {
+            // Get input fields and error messages
+            var nameInput = document.getElementById("name");
+            var emailInput = document.getElementById("email");
+            var phoneInput = document.getElementById("phone");
+            var subjectInput = document.getElementById("subject");
+            var messageInput = document.getElementById("message");
+
+            var nameError = document.getElementById("nameError");
+            var emailError = document.getElementById("emailError");
+            var phoneError = document.getElementById("phoneError");
+            var messageError = document.getElementById("messageError");  // message validation
+
+            // feedback div below the message input if it doesn't exist
+            var feedbackDiv = document.getElementById("feedbackMessage");
+            if (!feedbackDiv) {
+                feedbackDiv = document.createElement("div");
+                feedbackDiv.id = "feedbackMessage";
+                // Insert it right after the message input field
+                var messageInputElement = document.getElementById("message");
+                if (messageInputElement && messageInputElement.parentNode) {
+                    messageInputElement.parentNode.insertBefore(feedbackDiv, messageInputElement.nextSibling);
+                } else {
+                    document.body.appendChild(feedbackDiv);
+                }
+            }
+
+            // Hide all errors initially
+            nameError.style.display = "none";
+            emailError.style.display = "none";
+            phoneError.style.display = "none";
+            messageError.style.display = "none";  // Added to hide message error initially
+
+            var isValid = true;
+
+            // Validate name: required, not empty, and contains at least one letter
+            if (nameInput.value.trim() === "" || !/[a-zA-Z]/.test(nameInput.value.trim())) {
+                nameError.style.display = "block";
+                isValid = false;
+            }
+
+            // Validate email: required, not empty, and valid email format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var ValueEmail = emailInput.value.trim();
+
+            if (ValueEmail === "") {
+                emailError.style.display = "block";
+                isValid = false;
+            } else if (!ValueEmail.includes("@")) {
+                emailError.textContent = "@ is missing";
+                emailError.style.display = "block";
+                isValid = false;
+            } else if (!ValueEmail.includes(".")) {
+                emailError.textContent = ". is missing";
+                emailError.style.display = "block";
+                isValid = false;
+            } else {
+                emailError.style.display = "none";
+            }
+
+            // Validate phone: required, not empty, and matches Nepal phone format (e.g., +977 98xxxxxxxx)
+            var phoneRegex = /^\+977\s98\d{8}$/;
+            var valuePhone = phoneInput.value.trim();
+
+            if (valuePhone === "") {
+                phoneError.style.display = "block";
+                isValid = false;
+            } else if (!phoneRegex.test(valuePhone)) {
+                phoneError.textContent = "Phone number must be in the format +977 98xxxxxxxx.";
+                phoneError.style.display = "block";
+                isValid = false;
+            } else {
+                phoneError.style.display = "none";
+
+            }
+            // Validate message: required, not empty
+            if (messageInput.value.trim() === "") {
+                messageError.style.display = "block";
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Save data to localStorage
+                localStorage.setItem("name", nameInput.value);
+                localStorage.setItem("email", emailInput.value);
+                localStorage.setItem("phone", phoneInput.value);
+                localStorage.setItem("subject", subjectInput.value);
+                localStorage.setItem("message", messageInput.value);
+
+                // Show success message in the feedback div
+                feedbackDiv.textContent = "Thank you for contacting us, " + nameInput.value + "! We will get back to you shortly.";
+                feedbackDiv.style.color = "green";
+
+                // Reload the page after 5 seconds to reset the form
+                setTimeout(function () {
+                    window.location.reload();
+                }, 5000);
+
+                return true; // Allow form submission (though reload will happen)
+            } else {
+                // Show error message in the feedback div
+                feedbackDiv.textContent = "Please fill out all required fields correctly.";
+                feedbackDiv.style.color = "red";
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+
+</html>

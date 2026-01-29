@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMart - Product</title>
+    <!-- CSS Link  -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/product.css">
+    <!-- Fonts/Icons Link  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section  -->
+    <header>
+        <nav class="navbar flex  wrapper">
+            <a href="#" class="logo">EcoMart</a>
+            <!-- Desktop version -->
+            <ul class="navlist flex gap-3">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html" class="active-link">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+            </ul>
+            <div class="desktop-action flex gap-2">
+                <form class="search-form" id="search-form">
+                    <input type="text" id="search-input" placeholder="Search...">
+                    <button type="submit" class="search-btn">
+                        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    </button>
+                </form>
+                <a href="./cart.html" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span
+                        class="cart-value">0</span></a>
+                <a href="" class="hamburger"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <!-- Mobile version  -->
+            <ul class="mobile-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html" class="active-link">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Main Part of Webpage  -->
+    <main>
+        <div class="products-container">
+            <h1>Our Eco-Friendly Products</h1>
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+    </main>
+    <!-- Footer Section  -->
+    <footer>
+        <div class="footer-container wrapper">
+            <!-- Company Info Section -->
+            <div class="footer-section">
+                <h3>EcoMart</h3>
+                <p> Your trusted source for eco-friendly products. We're committed to sustainability, offering
+                    high-quality items that help reduce your environmental impact. Shop responsibly and make a
+                    difference!</p>
+                <div class="payment-methods">
+                    <h4>Payment Methods We Accept</h4>
+                    <div class="payment-icons">
+                        <i class="fa-solid fa-credit-card" title="creditcard"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                       <i><button class="pay">esewa</button></i>
+                        <i><button class="pay">cash on delivery</button></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Itahari, Sunsari, Nepal</p>
+                <p><i class="fas fa-phone"></i> +977 9801988234, +977 9804913670</p>
+                <p><i class="fas fa-envelope"></i> info@ecomart.com</p>
+                <h4>Connect with us</h4>
+                <ul class="connect">
+                    <li><a href="https://www.linkedin.com/in/anamika-limbu-b01238340/"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li><a href="https://github.com/Anamikalimbu"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
+            <!-- Help Section-->
+            <div class="footer-section help-section">
+                <h4>Help</h4>
+                <ul class="help-links">
+                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom wrapper">
+            <p>&copy; 2025 EcoMart. All rights reserved</p>
+        </div>
+    </footer>
+    <!-- JavaScript link  -->
+    <script src="../JS/product.js"></script>
+</body>
+</html>

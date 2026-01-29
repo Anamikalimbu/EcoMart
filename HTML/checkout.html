@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMart - Checkout</title>
+    <!-- CSS Link  -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- Fonts/Icons Link  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        body {
+            padding-top: 6%;
+        }
+
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .checkout-form {
+            flex: 2;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            background-color: #ffeaea;
+            border: 1px solid #e74c3c;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 15px;
+            display: none;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            border-color: #232222;
+        }
+
+        .payment-options {
+            margin-top: 20px;
+        }
+
+        .order-summary {
+            flex: 1;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-summary h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .summary-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .summary-item-details {
+            flex: 1;
+        }
+
+        .summary-item-details span {
+            display: block;
+        }
+
+        .summary-item-details .name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .summary-item-details .quantity {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .summary-item-price {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .summary-total {
+            font-weight: bold;
+            font-size: 18px;
+            color: #e74c3c;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .place-order-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .place-order-btn:hover {
+            background-color: #229954;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .modal-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-btn:hover {
+            background-color: #229954;
+        }
+
+        .error-modal .modal-content {
+            border-left: 5px solid #e74c3c;
+        }
+
+        .error-modal .modal-content h3 {
+            color: #e74c3c;
+        }
+
+        .success-modal .modal-content {
+            border-left: 5px solid #27ae60;
+        }
+
+        .success-modal .modal-content h3 {
+            color: #27ae60;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 28%;
+            }
+
+            .checkout-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .checkout-form,
+            .order-summary {
+                padding: 15px;
+            }
+
+            .form-group input,
+            .form-group select {
+                font-size: 14px;
+            }
+
+            .summary-item img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .summary-item {
+                gap: 8px;
+            }
+
+            .place-order-btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .modal-content {
+                margin: 20% auto;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section  -->
+    <header>
+        <nav class="navbar flex wrapper">
+            <a href="#" class="logo">EcoMart</a>
+            <!-- Desktop version -->
+            <ul class="navlist flex gap-3">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+            </ul>
+            <div class="desktop-action flex gap-2">
+                <a href="./cart.html" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span
+                        class="cart-value">0</span></a>
+                <a href="" class="hamburger"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <!-- Mobile version  -->
+            <ul class="mobile-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Part of Webpage  -->
+    <main>
+        <div class="checkout-container">
+            <div class="checkout-form">
+                <h2>Shipping & Billing Information</h2>
+                <div id="errorMessage" class="error-message"></div>
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment">Payment Method</label>
+                        <select id="payment" name="payment" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="creditcard">Credit Card</option>
+                            <option value="mastercard">Mastercard</option>
+                            <option value="esewa">eSewa</option>
+                            <option value="cod">Cash on Delivery</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div id="summaryItems"></div>
+                <div id="summaryTotal" class="summary-total"></div>
+                <button class="place-order-btn" id="placeOrderBtn">Place Order</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Messages -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            <button class="modal-btn" id="modalBtn">OK</button>
+        </div>
+    </div>
+
+    <!-- Footer Section  -->
+    <footer>
+        <div class="footer-container wrapper">
+            <!-- Company Info Section -->
+            <div class="footer-section">
+                <h3>EcoMart</h3>
+                <p>Your trusted source for eco-friendly products. We're committed to sustainability, offering
+                    high-quality items that help reduce your environmental impact. Shop responsibly and make a
+                    difference!</p>
+                <div class="payment-methods">
+                    <h4>Payment Methods We Accept</h4>
+                    <div class="payment-icons">
+                        <i class="fa-solid fa-credit-card" title="creditcard"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i><button class="pay">esewa</button></i>
+                        <i><button class="pay">cash on delivery</button></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Itahari, Sunsari, Nepal</p>
+                <p><i class="fas fa-phone"></i> +977 9801988234, +977 9804913670</p>
+                <p><i class="fas fa-envelope"></i> info@ecomart.com</p>
+                <h4>Connect with us</h4>
+                <ul class="connect">
+                    <li><a href="https://www.linkedin.com/in/anamika-limbu-b01238340/"><i
+                                class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li><a href="https://github.com/Anamikalimbu"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
+            <!-- Help Section-->
+            <div class="footer-section help-section">
+                <h4>Help</h4>
+                <ul class="help-links">
+                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom wrapper">
+            <p>&copy; 2025 EcoMart. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu script
+        const hamburger = document.querySelector(".hamburger");
+        const hamburgerIcon = document.querySelector(".hamburger i");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        hamburger.addEventListener("click", (e) => {
+            e.preventDefault();
+            mobileMenu.classList.toggle("mobile-menu-active");
+            if (mobileMenu.classList.contains("mobile-menu-active")) {
+                hamburgerIcon.classList.remove("fa-bars");
+                hamburgerIcon.classList.add("fa-xmark");
+            } else {
+                hamburgerIcon.classList.remove("fa-xmark");
+                hamburgerIcon.classList.add("fa-bars");
+            }
+        });
+
+        // Elements
+        const summaryItemsDiv = document.getElementById('summaryItems');
+        const summaryTotalDiv = document.getElementById('summaryTotal');
+        const cartValue = document.querySelector('.cart-value');
+        const placeOrderBtn = document.getElementById('placeOrderBtn');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const errorMessageDiv = document.getElementById('errorMessage');
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const modalBtn = document.getElementById('modalBtn');
+
+        // Function to show modal
+        function showModal(title, message, isError = false) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modal.className = isError ? 'modal error-modal' : 'modal success-modal';
+            modal.style.display = 'block';
+        }
+
+        // Function to hide modal
+        function hideModal() {
+            modal.style.display = 'none';
+        }
+
+        // Close modal on button click
+        modalBtn.addEventListener('click', () => {
+            hideModal();
+            if (modal.classList.contains('success-modal')) {
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Close modal on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                hideModal();
+                if (modal.classList.contains('success-modal')) {
+                    window.location.href = 'index.html';
+                }
+            }
+        });
+
+        // Load and render order summary
+        function loadOrderSummary() {
+            // Always load cart for count
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            console.log('Loaded cart:', cart); // Debugging: Check cart contents
+            updateCartCount(cart);
+
+            // Prioritize Buy Now over cart
+            const buyNowProduct = JSON.parse(localStorage.getItem('buyNowProduct'));
+            console.log('Buy Now product:', buyNowProduct); // Debugging: Check if Buy Now is set
+
+            if (buyNowProduct) {
+                renderBuyNowSummary(buyNowProduct);
+            } else if (cart.length > 0) {
+                renderOrderSummary(cart);
+            } else {
+                // No items
+                summaryItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+                summaryTotalDiv.innerHTML = `
+                    <div class="summary-item"><span>Subtotal</span><span class="summary-item-price">NPR 0.00</span></div>
+                    <div class="summary-item"><span>Shipping</span><span class="summary-item-price">NPR 0.00</span></div>
+                    <div class="summary-item"><span>Total</span><span class="summary-item-price">NPR 0.00</span></div>
+                `;
+                placeOrderBtn.disabled = true;
+            }
+        }
+
+        // Render order summary for cart
+        function renderOrderSummary(cart) {
+            summaryItemsDiv.innerHTML = '';
+            let subtotal = 0;
+            placeOrderBtn.disabled = false;
+            cart.forEach(item => {
+                const priceStr = item.price ? item.price.toString().replace(/[^\d.]/g, '') : '0';
+                const priceNum = parseFloat(priceStr) || 0;
+                const quantity = item.quantity || 1;
+                const itemSubtotal = priceNum * quantity;
+                subtotal += itemSubtotal;
+                console.log(`Cart Item: ${item.name}, Price: ${priceNum}, Qty: ${quantity}, Subtotal: ${itemSubtotal}`);
+                summaryItemsDiv.innerHTML += `
+                    <div class="summary-item">
+                        <img src="${item.image || '../images/default.jpg'}" alt="${item.name || 'Product'}">
+                        <div class="summary-item-details">
+                            <span class="name">${item.name || 'Unknown Product'}</span>
+                            <span class="quantity">Qty: ${quantity}</span>
+                        </div>
+                        <span class="summary-item-price">NPR ${itemSubtotal.toFixed(2)}</span>
+                    </div>
+                `;
+            });
+            const totalQuantity = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            const shippingFee = totalQuantity >= 3 ? 0 : 100; // Assuming NPR 100 shipping fee if less than 3 items
+            const total = subtotal + shippingFee;
+            summaryTotalDiv.innerHTML = `
+                <div class="summary-item"><span>Subtotal</span><span class="summary-item-price">NPR ${subtotal.toFixed(2)}</span></div>
+                <div class="summary-item"><span>Shipping</span><span class="summary-item-price">NPR ${shippingFee.toFixed(2)}</span></div>
+                <div class="summary-item"><span>Total</span><span class="summary-item-price">NPR ${total.toFixed(2)}</span></div>
+            `;
+            console.log('Cart Subtotal:', subtotal, 'Shipping:', shippingFee, 'Total:', total);
+        }
+
+        // Render summary for Buy Now
+        function renderBuyNowSummary(product) {
+            summaryItemsDiv.innerHTML = '';
+            const priceStr = product.price ? product.price.toString().replace(/[^\d.]/g, '') : '0';
+            const priceNum = parseFloat(priceStr) || 0;
+            const subtotal = priceNum; // Quantity is 1 for Buy Now
+            const totalQuantity = 1; // Buy Now is single item
+            const shippingFee = totalQuantity >= 3 ? 0 : 100; // Assuming NPR 100 shipping fee if less than 3 items
+            const total = subtotal + shippingFee;
+            summaryItemsDiv.innerHTML += `
+                <div class="summary-item">
+                    <img src="${product.image || '../images/default.jpg'}" alt="${product.name || 'Product'}">
+                    <div class="summary-item-details">
+                        <span class="name">${product.name || 'Unknown Product'}</span>
+                        <span class="quantity">Qty: 1</span>
+                    </div>
+                    <span class="summary-item-price">NPR ${subtotal.toFixed(2)}</span>
+                </div>
+            `;
+            summaryTotalDiv.innerHTML = `
+                <div class="summary-item"><span>Subtotal</span><span class="summary-item-price">NPR ${subtotal.toFixed(2)}</span></div>
+                <div class="summary-item"><span>Shipping</span><span class="summary-item-price">NPR ${shippingFee.toFixed(2)}</span></div>
+                <div class="summary-item"><span>Total</span><span class="summary-item-price">NPR ${total.toFixed(2)}</span></div>
+            `;
+            console.log('Buy Now Subtotal:', subtotal, 'Shipping:', shippingFee, 'Total:', total);
+            placeOrderBtn.disabled = false;
+        }
+
+        // Update cart count
+        function updateCartCount(cart) {
+            const count = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+            cartValue.textContent = count;
+        }
+
+        // Place order
+        placeOrderBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (checkoutForm.checkValidity()) {
+                const buyNowProduct = JSON.parse(localStorage.getItem('buyNowProduct'));
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (buyNowProduct) {
+                    // Buy Now: Clear only buyNowProduct
+                    localStorage.removeItem('buyNowProduct');
+                } else {
+                    // Cart checkout: Clear cart
+                    localStorage.removeItem('cart');
+                    localStorage.setItem('cartCount', 0);
+                }
+                showModal('Order Successful!', 'Your order has been placed successfully. Thank you for shopping with EcoMart!', false);
+            } else {
+                showModal('Incomplete Form', 'Please fill in all required fields before placing your order.', true);
+            }
+        });
+
+        // Initialize
+        loadOrderSummary();
+    </script>
+</body>
+</html>

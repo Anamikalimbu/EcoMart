@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMart - Blog</title>
+    <!-- CSS Link  -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-- Fonts/Icons Link  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- Internal CSS  -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 2%;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .hero {
+            height: 400px;
+            background-image: url('../Assets/images/blog.jpg');
+            /* Placeholder background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 3em;
+        }
+
+        .hero p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.2em;
+        }
+
+        .section1 {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .card {
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            margin-top: 0;
+        }
+
+        .read-more {
+            color: #007bff;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .box {
+            margin-right: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin-top: 23px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .box h1 {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            font-size: 2.5rem;
+        }
+
+        .box p {
+            font-family: "Roboto Condensed", sans-serif;
+            text-align: justify;
+            margin: 30px;
+            font-size: 18px;
+        }
+
+        .first_box {
+            margin: 20px;
+        }
+
+        .first_box h1 {
+            font-size: 2.5rem;
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            color: rgb(7, 113, 7);
+        }
+
+        .first_box p {
+            font-family: "Roboto Condensed", sans-serif;
+            margin: 30px;
+            text-align: justify;
+            font-size: 18px;
+        }
+
+        .second_box {
+            margin: 20px;
+        }
+
+        .second_box h1 {
+            font-size: 2.5rem;
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            color: rgb(113, 28, 7);
+        }
+
+        .second_box p {
+            font-family: "Roboto Condensed", sans-serif;
+            margin: 30px;
+            text-align: justify;
+            font-size: 18px;
+        }
+
+        .third_box h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        .third_box p {
+            font-family: "Roboto Condensed", sans-serif;
+            margin: 30px;
+            text-align: justify;
+            font-size: 18px;
+        }
+
+        .fourth_box {
+            margin: 20px;
+        }
+
+        .fourth_box h1 {
+            font-size: 2.5rem;
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            color: rgb(11, 11, 11);
+        }
+
+        .fourth_box p {
+            font-family: "Roboto Condensed", sans-serif;
+            margin: 30px;
+            text-align: justify;
+            font-size: 18px;
+        }
+
+        .section3 {
+            padding: 20px;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 2%;
+            margin-bottom: 20px;
+        }
+
+        .col {
+            width: 30%;
+            height: 30%;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .col:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-flex {
+            display: flex;
+            flex-direction: column;
+            /* Vertical layout */
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .text-side {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            order: 2;
+        }
+
+        .image-side {
+            flex: 1;
+            text-align: center;
+            order: 1;
+        }
+
+        .image-side img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+        }
+
+        h2 {
+            margin: 0;
+            padding: 15px;
+            color: #080808;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .section3 .h2 {
+            text-align: center;
+            justify-content: center;
+
+        }
+
+        h2:hover {
+            background: linear-gradient(135deg, #d6f2d6, #b5eab6);
+        }
+
+        .content {
+            display: none;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+        }
+
+        .content p ul li {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .section:hover .content {
+            display: block;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            body {
+                padding-top: 10%;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .section1 {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .card {
+                width: 90%;
+                margin: 10px 0;
+            }
+
+            .box {
+                margin-right: 0;
+                height: auto;
+            }
+
+            .box h1,
+            .first_box h1,
+            .second_box h1,
+            .third_box h1,
+            .fourth_box h1 {
+                font-size: 1.5rem;
+            }
+
+            .box p,
+            .first_box p,
+            .second_box p,
+            .third_box p,
+            .fourth_box p {
+                margin: 15px;
+                font-size: 16px;
+            }
+
+            .row {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 1%;
+            }
+
+            .col {
+                width: 90%;
+                margin: 10px 0;
+                height: auto;
+                
+            }
+
+            .section3 h2 {
+                font-size: 1.5em;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+  
+    </style>
+</head>
+
+<body>
+    <!-- Header Section  -->
+    <header>
+        <nav class="navbar flex  wrapper">
+            <a href="#" class="logo">EcoMart</a>
+            <!-- Desktop version -->
+            <ul class="navlist flex gap-3">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html" class="active-link">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+            </ul>
+            <div class="desktop-action flex gap-2">
+                <a href="./cart.html" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span
+                        class="cart-value">0</span></a>
+                <a href="" class="hamburger"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <!-- Mobile version  -->
+            <ul class="mobile-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html" class="active-link">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Part of Webpage  -->
+    <main>
+
+        <div class="hero">
+            <div>
+                <h1>Welcome to EcoMart Blog</h1>
+                <p>Discover amazing stories and insights</p>
+            </div>
+        </div>
+        <!-- Blog Cards Section  -->
+        <section class="section1">
+            <div class="card"
+                data-fulltext='Technology has also improved education. Students can now attend online classes, watch educational videos, and access digital books from anywhere. Information is easily available on the internet, which helps learners gain knowledge quickly. Teachers also use smart boards and presentations to make learning more interesting and effective. In healthcare, technology has saved countless lives. Modern machines help doctors detect diseases early and treat patients more accurately. Online appointments, digital medical records, and advanced medical equipment have made healthcare faster and more reliable. Technology has also made daily tasks easier. We can shop online, pay bills, book tickets, and even order food using mobile apps. Machines and software have increased productivity in offices, factories, and farms, helping people complete work in less time. Negative Effects of Technology Despite its many advantages, technology also has some harmful effects. One major problem is overdependence. Many people, especially young students, spend too much time on mobile phones, video games, and social media. This reduces physical activity and can lead to health problems such as eye strain, obesity, and poor sleep. Another negative effect is social isolation. Although technology connects people online, it sometimes reduces real-life interactions. People may spend more time on screens than talking to their family or friends, which can weaken relationships. Technology has also affected mental health. Constant use of social media can cause stress, anxiety, and low self-esteem, especially when people compare their lives with others. Cyberbullying and online harassment are also serious issues.Furthermore, technology has caused job problems in some areas. Machines and artificial intelligence are replacing human workers in factories and offices. This can lead to unemployment if people do not learn new skills.Necessity of Technology in Modern Life Even with its negative effects, technology is necessary in today world. Society is growing fast, and technology helps manage this growth. It supports communication, business, education, transportation, and healthcare. Without technology, it would be very difficult to keep up with modern demands. Technology also helps in solving global problems. It plays a vital role in weather forecasting, disaster management, scientific research, and environmental protection. For example, technology is used to track climate change and find solutions to reduce pollution. To make the best use of technology, people must use it wisely. Parents and teachers should guide children to use technology for learning rather than only for entertainment. Everyone should balance screen time with physical activity and real-life interaction.
+                In conclusion, technology has greatly influenced our daily lives. It has brought many positive changes such as better communication, improved education, advanced healthcare, and easier daily activities. However, it has also created problems like health issues, social isolation, and job challenges. Technology is a powerful tool, and its effects depend on how we use it. If used properly and responsibly, technology can help build a better and brighter future for all.'>
+
+                <img src="../Assets/images/blog2.webp" alt="affect in our daily life">
+                <div class="card-content">
+                    <h3>How Technology Affects Our Daily Life</h3>
+                    <p>Technology has become an inseparable part of modern human life. From the moment we wake up to the
+                        time we go to sleep, we depend on technology in one way or another. Mobile phones, the internet,
+                        computers, and various smart devices have changed the way we communicate, work, learn, and live.
+                        Technology has made life more comfortable and efficient, but it has also created several
+                        challenges. Therefore, it is important to understand both the positive and negative impacts of
+                        technology and its necessity in our daily lives.Positive Effects of Technology One of the
+                        greatest benefits of technology is communication. In the past, people had to wait for days or
+                        even months to receive letters. Today, we can send messages, make video calls, and share
+                        information instantly through smartphones and social media. This has brought people closer, even
+                        if they are living in different countries.</p>
+                    <span class="read-more">Read More</span>
+                </div>
+            </div>
+            <div class="card"
+                data-fulltext='Technology has also made business operations more efficient. Computers, software, and machines help in record keeping, accounting, inventory management, and production. Tasks that once took many hours can now be completed in minutes. This increases productivity and reduces errors. Another important advantage is online business. Through websites and social media, companies can advertise their products and services to people all over the world. Online shopping has made it easy for customers to buy goods from their homes, and businesses can earn more profit by reaching a larger market. Technology has also improved customer service. Businesses can use chatbots, emails, and mobile apps to respond to customer questions and complaints quickly. This increases customer satisfaction and builds trust. Negative Effects of Technology in Business Even though technology has many benefits, it also has some disadvantages. One major problem is job loss. Machines, robots, and automated systems can replace human workers in factories, offices, and even customer service. This can lead to unemployment if workers do not learn new skills.Another negative effect is the high cost of technology. Buying new machines, software, and security systems can be expensive, especially for small businesses. Businesses also need to spend money on maintenance and training. Cybersecurity is another serious issue. Businesses store important data such as customer details and financial records online. If this data is hacked or stolen, it can cause huge losses and damage the company reputation. Technology can also make businesses too dependent on machines. If systems fail or there is a technical problem, work may stop, causing delays and losses. Necessity of Technology in Business In todays competitive world, technology is not a choice but a necessity for businesses. Companies that do not use modern technology may fall behind their competitors. Technology helps businesses reduce costs, improve quality, and increase speed. It also supports innovation. New technologies help businesses create better products and services. Online payment systems, digital marketing, and e-commerce have completely changed the way businesses operate.To use technology successfully, businesses must invest in training their employees and protecting their data. When used properly, technology can help businesses grow and succeed.
+                In conclusion, technology has a strong impact on business. It has improved communication, increased efficiency, expanded markets, and improved customer service. At the same time, it has also caused problems such as job loss, high costs, and cybersecurity risks. However, technology is essential for modern business. With careful and responsible use, technology can help businesses achieve long-term success.'>
+                <img src="../Assets/images/blog1.png" alt="affect of business">
+                <div class="card-content">
+                    <h3>How Technology Affects Business</h3>
+                    <p>Technology has become one of the most important factors in the growth and development of modern
+                        business. In today's world, almost every business depends on technology in some way. From small
+                        shops to large international companies, technology helps businesses operate more efficiently,
+                        communicate better, and reach more customers. Although technology has brought many advantages,
+                        it has also created some challenges. Therefore, it is important to understand how technology
+                        affects business in both positive and negative ways and why it is necessary.Positive Effects of
+                        Technology in Business One of the biggest benefits of technology in business is improved
+                        communication. Emails, video calls, and messaging apps allow businesses to communicate quickly
+                        with customers, suppliers, and employees. This saves time and helps businesses make faster
+                        decisions.</p>
+                    <span class="read-more">Read More</span>
+                </div>
+            </div>
+        </section>
+        <!-- Technology Impact Section  -->
+        <section>
+            <div class="box">
+                <h1>Technology Used in EcoMart</h1>
+                <p>EcoMart was developed using a combination of modern web technologies to create a clean, responsive,
+                    and user-friendly interface. HTML5<i class="fa-brands fa-html5"></i>was used to structure the
+                    content of the website, forming the foundation for each page. CSS3<i
+                        class="fa-brands fa-css3-alt"></i>helped design the layout, colors, and overall appearance,
+                    ensuring an appealing and consistent look throughout the site. To add interactivity and smooth
+                    functionality, JavaScript<i class="fa-brands fa-square-js"></i>was used for elements such as
+                    navigation, pop-ups, and user interactions. The project was built using Visual Studio Code (VS Code)
+                    as the main code editor because of its simplicity, wide range of extensions, and efficient workflow
+                    support. For planning the layout and structure before development, Balsamiq was used to create
+                    wireframes that guided the design process. Additionally, Google Fonts and Icons were included to
+                    enhance the visual experience with clean typography and intuitive symbols.</p>
+            </div>
+            <div class="first_box">
+                <h1>
+                    Positive Impact of Technology<i class="fa-solid fa-square-plus"></i>
+                </h1>
+                <p>Technology has brought remarkable improvements to our daily lives by making tasks faster, easier, and
+                    more efficient. It has transformed the way we communicate, allowing instant connection through
+                    messages, calls, and online platforms. In education, technology provides access to endless
+                    information, digital tools, and interactive learning methods that help students understand topics
+                    more clearly. It has also advanced healthcare by enabling faster diagnosis, improved treatment, and
+                    better patient care through modern medical equipment.<br> Beyond personal use, technology has
+                    created a positive impact on businesses, industries, and society as a whole. It boosts productivity,
+                    reduces errors, and helps automate routine tasks, allowing people to focus on creativity and
+                    problem-solving. Technology also supports innovation, leading to new inventions, smarter services,
+                    and improved quality of life. Overall, it connects people globally, opens new opportunities, and
+                    contributes to sustainable development and progress.</p>
+            </div>
+            <div class="second_box">
+                <h1>
+                    Negative Impact of Technology<i class="fa-solid fa-square-minus"></i>
+                </h1>
+                <p>Technology, despite its many advantages, also brings several negative impacts that affect individuals
+                    and society. One major issue is the increase in screen addiction, especially among children and
+                    teenagers, leading to reduced focus, weak social interaction, and poor sleeping habits. Excessive
+                    use of devices can cause health problems such as eye strain, headaches, and a more sedentary
+                    lifestyle. Social media can also create stress, anxiety, and unrealistic expectations, affecting
+                    mental well-being. Additionally, overreliance on technology can reduce critical thinking and
+                    practical skills as people begin to depend heavily on digital tools for even simple tasks.<br>On a
+                    broader scale, technology has raised concerns about privacy, security, and environmental damage. The
+                    rise in cybercrimes, data breaches, and online scams puts personal information at risk. Automation
+                    and advanced machines can replace human jobs, leading to unemployment in certain industries.
+                    Meanwhile, electronic waste from gadgets and devices contributes to pollution and environmental
+                    harm. Although technology improves life in many ways, its negative impacts show the importance of
+                    using it responsibly, safely, and in moderation.</p>
+            </div>
+            <div class="third_box">
+                <h1 style="font-size: 2.5rem; font-weight: 600; justify-content: center; text-align: center; padding-bottom: 1rem;">Technology Boosting Sustainable Product Sales</h1>
+                <p
+                    style=" font-family: Roboto Condensed, sans-serif;margin: 30px; text-align: justify; font-size: 18px;">
+                    Technology is playing a crucial role in promoting sustainable product sales. E-commerce platforms and mobile apps are making it easier for consumers to discover and purchase eco-friendly products. Digital marketing strategies are helping brands reach environmentally conscious buyers more effectively. Additionally, technology enables better tracking of supply chains, ensuring transparency and accountability in sustainable practices.</p>
+            </div>
+        </section>
+        <!-- EcoMart Insights Section  -->
+        <section>
+            <div class="section">
+                <h2>Why Choose Sustainable Products?</h2>
+                <div class="content">
+                    <p>Choosing sustainable products helps protect the environment, saves natural resources, and reduces
+                        pollution. They are safer, long-lasting, and support a healthier future for our planet. <br>
+                    <ul>
+                        <li><strong>Reduces Pollution</strong> It creates less waste and lower environmental harm.</li>
+                        <li><strong>Saves Resources</strong> They use eco-friendly materials that protect natural
+                            resources.</li>
+                        <li><strong>Healthier & long-lasting</strong> These products are safer to use and last longer
+                            than regular ones.</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Sustainable Living Tips & Tricks</h2>
+                <div class="content">
+                    <p>Sustainable living means making small, smart choices that help the planet every day. Simple
+                        habits like using reusable bags and bottles, saving energy and water, recycling waste, choosing
+                        eco-friendly products, and supporting local items can greatly reduce our environmental impact.
+                        Even small actions like walking instead of driving or growing a few plants at home make a big
+                        difference in protecting the earth for the future. </p>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Interviews with Sustainable Brands & Experts</h2>
+                <div class="content">
+                    <p>We spoke with eco-friendly brand leaders and sustainability experts. For instance, Patagonia's
+                        CEO emphasized the importance of repairing and reusing clothing to extend product lifecycles.
+                        Experts from the World Wildlife Fund highlight how brands like Beyond Meat are innovating to
+                        reduce meat consumption and greenhouse gas emissions. It's spreading awareness and educating
+                        people about eco-friendly practices.spreading awareness and educating people about eco-friendly
+                        practices</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2>News & Updates on Environmental Issues</h2>
+                <div class="content">
+                    <p>Stay informed on the latest environmental news. Recent updates include the UN's warnings on
+                        climate change tipping points, the rise of plastic-free initiatives in major cities, and
+                        breakthroughs in renewable energy like solar panel efficiency reaching new highs. Following
+                        these developments can guide your sustainable choices. News and updates on environmental issues
+                        keep people informed about what is happening to our planet, from climate change and pollution to
+                        wildlife conservation and new sustainability efforts. Staying updated helps individuals and
+                        communities understand current challenges, take timely action, and support eco-friendly
+                        solutions. It also encourages people to make more responsible choices that contribute to
+                        protecting the environment.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Community Stories & Successes</h2>
+                <div class="content">
+                    <p>Inspiring stories from our community:
+                    <ol>
+                        <li>A family in California reduced their waste by 70% through
+                            composting and zero-waste shopping. In another case, a school in New York implemented a
+                            recycling program that diverted tons of waste from landfills. These successes show that
+                            collective action can lead to meaningful change.</li>
+                        <li>In a small village in India, a group of students started a weekly “Plastic-Free Friday”
+                            campaign, where everyone collected plastic waste and promoted reusable alternatives. Within
+                            a few months, the village reduced plastic litter by more than half, inspiring nearby
+                            communities to start similar eco-friendly initiatives.</li>
+                        <li>In Pokhara, a youth group launched a “Clean Fewa Lake” campaign, organizing regular
+                            clean-ups and encouraging tourists to avoid plastic waste. Their effort removed tons of
+                            garbage, improved the lake's cleanliness, and inspired other communities across Nepal to
+                            start their own environmental clean-up drives.</li>
+                    </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="fourth_box">
+                <h1>
+                    EcoMart Insights
+                </h1>
+                <p>It serves as an informative section that helps users deepen their understanding of sustainability and
+                    eco-friendly products. It offers clear explanations about how sustainable items are designed, the
+                    materials used, and the environmental benefits they provide. By presenting reliable facts, trends,
+                    and real-world examples, this section educates customers about the impact of their choices and
+                    encourages them to adopt greener habits in their daily lives. It also highlights common
+                    environmental challenges and how eco-friendly solutions can help address them. <br>
+                    Additionally, It gives users practical tips on sustainable living, such as reducing waste, choosing
+                    reusable items, and supporting environmentally responsible brands. It also provides updates on new
+                    innovations, environmental news, and inspiring community success stories. Through these insights,
+                    EcoMart aims to create awareness, promote responsible consumer behaviour, and empower individuals to
+                    make thoughtful, eco-conscious decisions that contribute to a healthier, more sustainable future.
+                    <br>
+                    In conclusion, EcoMart has played an important role in promoting sustainability and eco-friendly
+                    living. By providing information, tips, and updates on green products and practices, it helps
+                    individuals make informed choices that benefit both people and the planet. Through awareness,
+                    education, and real-life examples, EcoMart encourages responsible consumer behavior and inspires a
+                    collective effort toward a cleaner, healthier, and more sustainable future.
+                </p>
+            </div>
+        </section>
+        <section class="section3">
+            <h2 style="text-align: center; justify-content: center;">Discover eco-friendly essentials designed to
+                inspire greener living</h2>
+            <div class="row">
+                <div class="col"
+                    data-fulltext='In today world, where people are becoming more aware of environmental protection and healthy living, small choices can make a big difference. One such simple yet powerful choice is using a bamboo comb instead of a plastic one. Our bamboo comb is designed not only to care for your hair but also to protect the environment. Bamboo is a fast-growing and renewable resource, making it one of the most eco-friendly materials available. Unlike plastic combs that contribute to pollution and waste, bamboo combs are biodegradable and naturally safe for the planet. By choosing a bamboo comb, you are reducing plastic waste and supporting a cleaner, greener Earth. When it comes to hair care, bamboo combs are gentle and effective. The smooth, rounded teeth glide easily through the hair, reducing breakage, split ends, and hair fall. Bamboo also helps reduce static electricity, which means less frizz and smoother hair. It is suitable for all hair types, whether your hair is straight, curly, thick, or fine. Another great benefit of a bamboo comb is how it cares for your scalp. The wooden teeth gently massage the scalp while combing, improving blood circulation and promoting healthy hair growth. Unlike plastic combs, bamboo does not scratch or irritate the scalp, making it ideal for daily use. Our bamboo comb is lightweight, strong, and long-lasting, making it perfect for both home use and travel. It is a simple product, but it supports a healthier lifestyle and a more sustainable future.Apart from being environmentally friendly, bamboo combs are also excellent for hair care. The smooth, polished teeth of the comb gently glide through the hair without pulling or breaking it. This helps reduce hair fall, split ends, and damage caused by rough brushing. Bamboo naturally helps to control static electricity, which means your hair stays smoother, shinier, and less frizzy throughout the day. A bamboo comb is also gentle on the scalp. As you comb your hair, the rounded wooden teeth softly massage the scalp, improving blood circulation. This encourages healthy hair growth and helps distribute natural oils evenly from the roots to the ends of your hair. Unlike plastic combs, bamboo does not irritate or scratch the scalp, making it ideal for people with sensitive skin. Our bamboo comb is designed to be lightweight yet strong, making it easy to carry and long-lasting. Whether you are at home, at school, or traveling, this comb fits perfectly into your daily routine. Its natural texture also gives it a comfortable grip, making hair grooming simple and enjoyable. Choosing a bamboo comb is not just about hair care—it is about making a responsible lifestyle choice. By using a bamboo comb, you reduce plastic waste, support sustainable products, and contribute to protecting our planet. Small steps like these can lead to big changes for the future. Switch to a bamboo comb today and experience the beauty of natural hair care'>
+                    <div class="product-flex">
+                        <div class="text-side">
+                            <h4>Bamboo Comb</h4>
+                            <p>Lightweight, durable bamboo comb for everyday natural hair care.</p>
+                            <span class="read-more">Read More</span>
+                        </div>
+                        <div class="image-side">
+                            <img src="../Assets/images/products/product6.jpg" alt="comb">
+                        </div>
+                    </div>
+                </div>
+                <div class="col"
+                    data-fulltext='As the world faces increasing pollution and plastic waste, choosing eco-friendly products has become more important than ever. One such simple but powerful choice is using an environment-friendly tote bag. Our tote bag is designed to replace single-use plastic bags while offering a stylish, strong, and reusable solution for everyday needs.Our tote bags are made from natural and sustainable materials, making them safe for the planet and for your health. Unlike plastic bags that are used once and thrown away, these tote bags are reusable, biodegradable, and long-lasting. Every time you use a tote bag instead of plastic, you help reduce waste, save natural resources, and protect wildlife from harmful pollution.Made from natural and sustainable materials, this tote bag is safe for the environment and biodegradable. Unlike plastic bags that take hundreds of years to decompose, eco-friendly tote bags can be reused many times and eventually return to nature without causing harm. By using a tote bag, you help reduce plastic waste, protect wildlife, and keep our surroundings clean. Our environment-friendly tote bag is also highly practical. It is strong, lightweight, and spacious, making it perfect for carrying groceries, books, clothes, and daily essentials. The sturdy handles provide comfort and support, while the simple and stylish design makes it suitable for shopping, school, travel, or casual outings. Another great advantage of a tote bag is its durability. Instead of buying plastic bags again and again, you can use one tote bag for months or even years. This not only saves money but also supports a more sustainable lifestyle. By choosing an environment-friendly tote bag, you are making a positive impact on the planet. It is a small change that helps reduce pollution, conserve resources, and encourage responsible consumption.'>
+                    <div class="product-flex">
+                        <div class="text-side">
+                            <h4>Tote Bag</h4>
+                            <p>Reusable tote bag that blends simplicity, strength, and sustainability</p>
+                            <span class="read-more">Read More</span>
+                        </div>
+                        <div class="image-side">
+                            <img src="../Assets/images/products/product3.jpg" alt="bag">
+                        </div>
+                    </div>
+                </div>
+                <div class="col"
+                    data-fulltext='A towel is a daily essential designed to absorb moisture from your skin and provide comfort after bathing, washing your hands, or completing household tasks. What makes an eco-friendly towel special is the way it is created with care for both people and the planet. These towels are typically made from natural, sustainable materials like bamboo fibre, organic cotton, or recycled fabrics. Such materials grow with fewer chemicals, need less water, and have a lower environmental footprint compared to conventional textiles. Eco-friendly towels are known for their exceptional softness and high absorbency, offering a gentle feel that is suitable even for sensitive skin. Their fibres are naturally breathable, quick drying, and long lasting, which means the towel stays fresh and durable over time, reducing the need for frequent replacements. By choosing sustainable towels, you are not just picking a high quality product you are supporting responsible manufacturing, reducing waste, and promoting a healthier environment. Every use becomes a small step toward a greener lifestyle, making eco-friendly towels a meaningful choice for everyday living.'>
+                    <div class="product-flex">
+                        <div class="text-side">
+                            <h4>Towel</h4>
+                            <p>Soft, quick-drying eco towel made from natural fibres for everyday comfort.</p>
+                            <span class="read-more">Read More</span>
+                        </div>
+                        <div class="image-side">
+                            <img src="../Assets/images/products/product4.jpg" alt="towel">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"
+                    data-fulltext='Keep yourself hydrated in style with our Premium Stainless Steel Bottle, the ultimate reusable water bottle for health-conscious and eco-friendly lifestyles. Made from high-quality, food-grade stainless steel, this bottle is built to last durable, rust-resistant, and safe for daily use. Its sleek, modern design makes it ideal for work, gym sessions, outdoor adventures, travel, or even casual everyday use. The leak-proof lid ensures that you can carry it in your bag without any spills, while its advanced insulation technology keeps your drinks hot or cold for hours, giving you the perfect temperature whenever you need it. Designed with sustainability in mind, this eco-friendly water bottle is BPA free and reusable, reducing single-use plastic and helping you contribute to a greener planet. Its wide mouth design and smooth interior make filling, pouring, and cleaning effortless, while the lightweight, portable form makes it easy to take anywhere. Whether you are sipping water, juice, tea, or coffee, this stainless steel bottle combines convenience, style, and environmental responsibility. Perfect for fitness enthusiasts, students, travelers, or anyone who values hydration on the go, it is more than just a bottle—it is a reliable companion for a healthy, sustainable, and active lifestyle.'>
+                    <div class="product-flex">
+                        <div class="text-side">
+                            <h4>Steel Bottle</h4>
+                            <p>Insulated stainless steel bottle for eco-friendly hydration.</p>
+                            <span class="read-more">Read More</span>
+                        </div>
+                        <div class="image-side">
+                            <img src="../Assets/images/products/product9.webp" alt="bottel">
+                        </div>
+                    </div>
+                </div>
+                <div class="col"
+                    data-fulltext='Elevate your desk or bedside setup with our Premium Wooden Mobile Stand, a perfect blend of style, functionality, and sustainability. Crafted from high-quality, natural wood, this stand is designed to hold your phone securely at the ideal angle for hands-free use, making video calls, watching movies, browsing, or even reading recipes effortless and comfortable. Its durable and sturdy construction ensures that your device stays in place without slipping, while the smooth, polished wooden finish adds a touch of elegance to any workspace or home decor. Eco-friendly and thoughtfully designed, this wooden stand is lightweight for portability yet robust enough for daily use. Its universal compatibility makes it suitable for all smartphone models, tablets, and even small accessories like e-readers. Whether placed on your desk, bedside table, or kitchen counter, it keeps your device accessible, organized, and stylishly displayed. Perfect for professionals, students, or anyone looking to combine practicality with aesthetic appeal, this stand is more than just a phone holder—it is a functional piece of decor that enhances your space while promoting an eco-conscious lifestyle.'>
+                    <div class="product-flex">
+                        <div class="text-side">
+                            <h4>Mobile Stand</h4>
+                            <p>Wooden mobile stand for hands-free device use.</p>
+                            <span class="read-more">Read More</span>
+                        </div>
+                        <div class="image-side">
+                            <img src="../Assets/images/products/product22.jpg" alt="moblie stand">
+                        </div>
+                    </div>
+                </div>
+                <div class="col"
+                    data-fulltext='Make your oral care routine eco-friendly with our Premium Bamboo Toothbrush. Made from 100% natural bamboo, this toothbrush is biodegradable, sustainable, and gentle on the environment, helping reduce single-use plastic waste. Its soft, durable bristles are designed to clean your teeth effectively while being kind to your gums, providing a comfortable and thorough brushing experience. The ergonomic wooden handle offers a natural, non-slip grip, making it easy to hold and use every day. Lightweight and stylish, this bamboo toothbrush is perfect for home use, travel, or gifting to eco-conscious friends and family. By choosing this sustainable toothbrush, you are not only taking care of your oral health but also contributing to a healthier planet. Upgrade your dental care routine with a toothbrush that is practical, stylish, and environmentally responsible.'>
+                    <div class="product-flex">
+                        <div class="text-side">
+                            <h4>Bamboo Brush</h4>
+                            <p>Biodegradable bamboo toothbrush for oral care.</p>
+                            <span class="read-more">Read More</span>
+                        </div>
+                        <div class="image-side">
+                            <img src="../Assets/images/products/product1.jpg" alt="toothbrush">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Section  -->
+    <footer>
+        <div class="footer-container wrapper">
+            <!-- Company Info Section -->
+            <div class="footer-section">
+                <h3>EcoMart</h3>
+                <p> Your trusted source for eco-friendly products. We're committed to sustainability, offering
+                    high-quality items that help reduce your environmental impact. Shop responsibly and make a
+                    difference!</p>
+                <div class="payment-methods">
+                    <h4>Payment Methods We Accept</h4>
+                    <div class="payment-icons">
+                       <i class="fa-solid fa-credit-card" title="creditcard"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i><button class="pay">esewa</button></i>
+                        <i><button class="pay">cash on delivery</button></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Itahari, Sunsari, Nepal</p>
+                <p><i class="fas fa-phone"></i> +977 9801988234, +977 9804913670</p>
+                <p><i class="fas fa-envelope"></i> info@ecomart.com</p>
+                <h4>Connect with us</h4>
+                <ul class="connect">
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
+            <!-- Help Section-->
+            <div class="footer-section help-section">
+                <h4>Help</h4>
+                <ul class="help-links">
+                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom wrapper">
+            <p>&copy; 2025 EcoMart. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Select the hamburger icon, its inner <i> element, and mobile menu
+        const hamburger = document.querySelector('.hamburger');
+        const hamburgerIcon = document.querySelector('.hamburger i'); // Target the <i> inside the hamburger
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        // Add click event listener to hamburger
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior (href="")
+            mobileMenu.classList.toggle('mobile-menu-active'); // Toggle the active class to slide menu in/out
+
+            // Toggle the icon: bars when closed, X when open
+            if (mobileMenu.classList.contains('mobile-menu-active')) {
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-xmark');
+            } else {
+                hamburgerIcon.classList.remove('fa-xmark');
+                hamburgerIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Cart counter
+        const cartValue = document.querySelector('.cart-value');
+        // Load cart count on page load
+        cartValue.textContent = localStorage.getItem('cartCount') || 0;
+
+        // Wait for the DOM to load before running
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all read-more spans
+            const readMoreButtons = document.querySelectorAll('.read-more');
+
+            // Add event listener to each span
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Find the closest parent with data-fulltext
+                    const parent = this.closest('[data-fulltext]');
+                    if (!parent) {
+                        console.error('No parent element with data-fulltext found for this Read More button.');
+                        return;
+                    }
+
+                    // Get the p element inside the text-side or card-content
+                    const p = parent.querySelector('p');
+                    if (!p) {
+                        console.error('No p element found in the parent.');
+                        return;
+                    }
+
+                    // Check if it's expanded
+                    if (p.textContent.trim() === parent.dataset.fulltext.trim()) {
+                        // Collapse: restore original text
+                        p.textContent = parent.dataset.originaltext || p.dataset.originaltext;
+                        this.textContent = 'Read More';
+                    } else {
+                        // Expand: save original text and set full text
+                        if (!parent.dataset.originaltext) {
+                            parent.dataset.originaltext = p.textContent;
+                        }
+                        p.textContent = parent.dataset.fulltext;
+                        this.textContent = 'Read Less';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

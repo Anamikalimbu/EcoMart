@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoMart -Home</title>
+    <!-- CSS Link  -->
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <!-- Fonts/Icons Link  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+
+<body>
+    <!-- Header Section  -->
+    <header>
+        <nav class="navbar flex wrapper">
+            <a href="#" class="logo">EcoMart</a>
+            <!-- Desktop version -->
+            <ul class="navlist flex gap-3">
+                <li><a href="./index.html" class="active-link">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+            </ul>
+            <div class="desktop-action flex gap-2">
+                <a href="./cart.html" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span
+                        class="cart-value">0</span></a>
+                <a href="" id="loginBtn" class="btn"><i class="fa-solid fa-circle-user"></i>&nbsp;Login</a>
+                <a href="" class="hamburger"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <!-- Mobile version  -->
+            <ul class="mobile-menu">
+                <li><a href="./index.html" class="active-link">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html">Research</a></li>
+                <a href="" id="mobileLoginBtn" class="btn"><i class="fa-solid fa-circle-user"></i>&nbsp;Login</a>
+            </ul>
+        </nav>
+        <!-- Login Modal (Popup) -->
+        <section>
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>EcoMart</h2>
+                    <div class="tab">
+                        <button id="registerTab" class="active">Register</button>
+                        <button id="loginTab">Login</button>
+                    </div>
+                    <form id="registerForm" onsubmit="return updateLoginButton()" action="./index.html">
+                        <div class="form-group">
+                            <label for="regIdentifier">Phone Number or Email:</label>
+                            <input type="text" id="regIdentifier" placeholder="Enter phone number or email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Password:</label>
+                            <input type="password" id="regPassword" placeholder="Enter password" />
+                        </div>
+                        <div class="form-group">
+                            <label for="regConfirmPassword">Confirm Password:</label>
+                            <input type="password" id="regConfirmPassword" placeholder="Confirm password" />
+                        </div>
+                        <button type="submit">Register</button>
+                        <div id="registerMessage" class="message"></div>
+                    </form>
+                    <form id="loginForm" class="hidden">
+                        <div class="form-group">
+                            <label for="loginIdentifier">Phone Number or Email:</label>
+                            <input type="text" id="loginIdentifier" placeholder="Enter phone number or email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password:</label>
+                            <input type="password" id="loginPassword" placeholder="Enter password" />
+                        </div>
+                        <button type="submit">Login</button>
+                        <div id="loginMessage" class="message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </header>
+    <!-- Main Part of Webpage  -->
+    <main>
+        <!-- hero section  -->
+        <section class="main-home">
+            <div class="main-text">
+                <h5>Ecofriendly Products</h5>
+                <h1> All Ecofriendly <br /> Products</h1>
+                <p>We provide high-quality eco products that meet strict<br/>sustainability standards. Choose from a wide collection<br/>of environmentally safe solutions that help you<br/>live responsibly and reduce your carbon footprint.</p>
+                <a href="./product.html" class="main-btn">Shop Now <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+        </section>
+        <!-- Product section  -->
+        <section>
+            <div class="products-container">
+                <h1>Feature <span>Products</span></h1>
+                <div class="products-grid" id="productsGrid"></div>
+            </div>
+        </section>
+        <!-- Why to choose Us -->
+        <section class="why-choose-us">
+            <div class="text-content">
+                <h2>Why Choose Us?</h2>
+                <p>At EcoMart, we make sustainable living simple, affordable, and reliable. We create our products from ethical, eco-friendly suppliers, high in quality and harmless to the planet. We prioritize transparency, responsible production, and innovative green solutions so you can shop with confidence. With eco-conscious packaging, fair pricing, and having a strong community and environmental impact. EcoMart is there to help you in your greener future, one choice at a time.</p>
+                <p>Discover more about our journey and expertise through our dedicated pages.</p>
+                <div class="links">
+                    <a href="./research.html">Research</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./about.html">About Us</a>
+                </div>
+            </div>
+            <div class="image-content">
+                <img src="../Assets/images/whychooseus.jpg" alt="Why Choose Us Image" />
+            </div>
+        </section>
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <h2>Shop by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="bottel">
+                    <img src="../Assets/images/category/category2.jpg" alt="Water Bottel" />
+                    <h3>Water Bottel</h3>
+                </div>
+                <div class="category-card" data-category="bags">
+                    <img src="../Assets/images/category/category3.jpg" alt="Bags" />
+                    <h3>Bags</h3>
+                </div>
+                <div class="category-card" data-category="lunch box">
+                    <img src="../Assets/images/category/category1.webp" alt="lunchbox" />
+                    <h3>Lunch Box</h3>
+                </div>
+                <div class="category-card" data-category="Accessories">
+                    <img src="../Assets/images/category/category4.jpg" alt="Mobile Accessories" />
+                    <h3>Mobile Accessories</h3>
+                </div>
+                <div class="category-card" data-category="Accessories">
+                    <img src="../Assets/images/category/category5.jpg" alt="Laptop Accessories" />
+                    <h3>Laptop Accessories</h3>
+                </div>
+                <div class="category-card" data-category="Furniture">
+                    <img src="../Assets/images/category/category6.jpg" alt="Book Shelf" />
+                    <h3>Book Shelf</h3>
+                </div>
+                <div class="category-card" data-category="cup">
+                    <img src="../Assets/images/category/category7.webp" alt="Bamboo Cup" />
+                    <h3>Bamboo Cup</h3>
+                </div>
+                <div class="category-card" data-category="Toothbrush">
+                    <img src="../Assets/images/category/category8.jpg" alt="Bamboo Toothbrush" />
+                    <h3>Bamboo Toothbrush</h3>
+                </div>
+                <div class="category-card" data-category="Comb">
+                    <img src="../Assets/images/category/category9.jpeg" alt="Comb" />
+                    <h3>Comb</h3>
+                </div>
+                <div class="category-card" data-category="Study Table">
+                    <img src="../Assets/images/category/category10.webp" alt="Study Table" />
+                    <h3>Study Table</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Section  -->
+    <footer>
+        <div class="footer-container wrapper">
+            <!-- Company Info Section -->
+            <div class="footer-section">
+                <h3>EcoMart</h3>
+                <p> Your trusted source for eco-friendly products. We're committed to sustainability, offering high-quality items that help reduce your environmental impact. Shop responsibly and make a difference!</p>
+                <div class="payment-methods">
+                    <h4>Payment Methods We Accept</h4>
+                    <div class="payment-icons">
+                        <i class="fa-solid fa-credit-card" title="creditcard"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i><button class="pay">esewa</button></i>
+                        <i><button class="pay">cash on delivery</button></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Itahari, Sunsari, Nepal</p>
+                <p><i class="fas fa-phone"></i> +977 9801988234, +977 9804913670</p>
+                <p><i class="fas fa-envelope"></i> info@ecomart.com</p>
+                <h4>Connect with us</h4>
+                <ul class="connect">
+                    <li><a href="https://www.linkedin.com/in/anamika-limbu-b01238340/"><i
+                                class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li><a href="https://github.com/Anamikalimbu"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
+            <!-- Help Section-->
+            <div class="footer-section help-section">
+                <h4>Help</h4>
+                <ul class="help-links">
+                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom wrapper">
+            <p>&copy; 2025 EcoMart. All rights reserved</p>
+        </div>
+    </footer>
+    <!-- JavaScript link  -->
+    <script src="../JS/script.js"></script>
+</body>
+
+</html>

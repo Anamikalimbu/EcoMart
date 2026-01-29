@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMart - Research</title>
+    <!-- CSS Link  -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- Fonts/Icons Link  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <style>
+        body {
+            padding-top: 6%;
+            font-family: "Roboto Condensed", sans-serif;
+            background: linear-gradient(135deg, #f0f8f0, #e8f5e8);
+            color: #333;
+        }
+        .main {
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .main h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2e7d32;
+            font-size: 2.5em;
+            position: relative;
+        }
+        .main h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #4caf50;
+            margin: 10px auto;
+        }
+        .image-section {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .image-box {
+            width: 45%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            vertical-align: top;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .image-box:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .image-box h3 {
+            margin-top: 15px;
+            color: #388e3c;
+            font-size: 1.2em;
+        }
+
+        .image-box a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #4caf50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition:  0.3s;
+        }
+
+        .image-box a:hover {
+            background: #388e3c;
+        }
+
+        .centered-content {
+            margin-bottom: 40px;
+        }
+
+        .centered-content p {
+            text-align: start;
+            justify-content: start;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #080808;
+        }
+
+        .research-content {
+            text-align: left;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #000;
+        }
+
+        .research-content h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .research-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .research-content li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #4caf50;
+            color: #fff;
+            font-weight: 800;
+            font-family: "Roboto Condensed", sans-serif;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        /* Responsive CSS for mobile screens */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 25%;
+            }
+
+            .main {
+                padding: 15px;
+            }
+
+            .main h2 {
+                font-size: 2em;
+            }
+
+            .image-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-box {
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .image-box img {
+                height: auto;
+            }
+
+            .centered-content p {
+                padding: 0 2%;
+                font-size: 14px;
+            }
+
+            table {
+                font-size: 14px;
+                overflow-x: auto;
+                display: block;
+                white-space: nowrap;
+            }
+
+            th,
+            td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section  -->
+    <header>
+        <nav class="navbar flex  wrapper">
+            <a href="#" class="logo">EcoMart</a>
+            <!-- Desktop version -->
+            <ul class="navlist flex gap-3">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html" class="active-link">Research</a></li>
+            </ul>
+            <div class="desktop-action flex gap-2">
+                <a href="./cart.html" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span
+                        class="cart-value">0</span></a>
+                <a href="" class="hamburger"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <!-- Mobile version  -->
+            <ul class="mobile-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html">Product</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./research.html" class="active-link">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Part of Webpage  -->
+    <main>
+        <!-- Home page comparison between EcoMart and eBay -->
+        <section>
+            <div class="main">
+                <h2>Home Page</h2>
+                <div class="image-section">
+                    <div class="image-box">
+                        <img src="../Assets/images/research/referenceshomepage.png" alt="Reference Design">
+                        <h3>Reference Website</h3>
+                        <a href="https://www.ebay.com/" target="_blank">View Reference</a>
+                    </div>
+                    <div class="image-box">
+                        <img src="../Assets/images/research/actualhomepage.png" alt="Actual Website">
+                        <h3>Actual Website</h3>
+                        <a href="./index.html">View Actual</a>
+                    </div>
+                </div>
+                <div class="centered-content">
+                    <div class="research-content">
+                        <h3>Similarities</h3>
+                        <ul>
+                            <li>Both EcoMart and eBay begin their homepages with a large banner on hero section designed
+                                to instantly draw user attention.</li>
+                            <li>Both sites use a grid layout to display product categories and featured items.</li>
+                            <li>Both show different products directly on the homepage for quick shopping access.</li>
+                            <li>eBay focuses on trending deals, discounts, and seasonal promotions to attract shoppers.
+                            </li>
+                            <li>Both websites feature a navigation bar with links to different sections of the site.
+                            </li>
+                            <li>Both sites showcase their brand identity through visual elements and messaging.</li>
+                        </ul>
+                    </div>
+                    <div class="research-content">
+                        <h3>Differences</h3>
+                        <ul>
+                            <li>Minimal, calm, eco-friendly colors (light green), simple layout.</li>
+                            <li>EcoMart focuses on sustainability and eco-consciousness.</li>
+                            <li>EcoMart uses a clean, centered layout with a hero image.</li>
+                            <li>EcoMart emphasizes its brand values through visual elements.</li>
+                            <li>EcoMart's homepage is more static compared to eBay's dynamic design.</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <h2>Comparison Table</h2>
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>eBay Homepage</th>
+                        <th>EcoMart Homepage</th>
+                    </tr>
+                    <tr>
+                        <td>Main Focus</td>
+                        <td>Dynamic shopping experience with trending deals</td>
+                        <td>Sustainability and eco-products</td>
+                    </tr>
+                    <tr>
+                        <td>Design Style</td>
+                        <td>Dynamic, colorful, and promotional</td>
+                        <td>Minimal, calm, eco-friendly colors (light green)</td>
+                    </tr>
+                    <tr>
+                        <td>Layout</td>
+                        <td>Grid-based with banners and carousels</td>
+                        <td>Clean, centered with hero image</td>
+                    </tr>
+                    <tr>
+                        <td>Navigation</td>
+                        <td>Extensive with many categories</td>
+                        <td>Basic (Home, Product, About, Blog, Research)</td>   
+                    </tr>
+                    <tr>
+                        <td>Product Display</td>
+                        <td>Dynamic carousels and trending deals</td>
+                        <td>Static grid of eco-products</td>
+                    </tr>
+                    <tr>
+                        <td>Brand Messaging</td>
+                        <td>Promotional focus on deals and trends</td>
+                        <td>Focus on sustainability values</td>
+                    </tr>
+                </table>
+                <div class="centered-content" style="margin-top: 30px;">
+                    <div class="research-content">
+                        <h3>Implementation</h3>
+                        <p>The implementation of the EcoMart homepage delivers a clean, modern, and sustainability-focused design that clearly reflects the brand's eco-friendly mission. With its soft green theme, minimal layout, and intuitive structure, the homepage creates a calm and user-friendly browsing experience. Key UI elements such as the navigation bar, hero section, featured products, categories, and footer are well-organized and visually balanced using CSS Grid and Flexbox. Overall, the homepage effectively showcases eco-friendly products while reinforcing EcoMart's values of sustainability, transparency, and user-centered design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product page comparison between EcoMart and Daraz -->
+        <section>
+            <div class="main">
+                <h2>Product Page</h2>
+                <div class="image-section">
+                    <div class="image-box">
+                        <img src="../Assets/images/research/referencesproductpage.png" alt="Reference Design">
+                        <h3>Reference Website</h3>
+                        <a href="https://www.daraz.com/" target="_blank">View Reference</a>
+                    </div>
+                    <div class="image-box">
+                        <img src="../Assets/images/research/actualproductpage.png" alt="Actual Website">
+                        <h3>Actual Website</h3>
+                        <a href="./product.html">View Actual</a>
+                    </div>
+                </div>
+                <div class="centered-content">
+                    <div class="research-content">
+                        <h3>Similarities</h3>
+                        <ul>
+                            <li>Both are e-commerce product listing pages</li>
+                            <li>Use a grid-based product layout</li>
+                            <li>Each product card includes: Product image, product name, price, discount/ offer indication</li>
+                            <li>Have search functionality at the top</li>
+                            <li>Designed to encourage online purchasing behavior</li>
+                            <li>Responsive-style layouts suitable for desktop viewing, mobile version</li>
+                        </ul>
+                    </div>
+                    <div class="research-content">
+                        <h3>Differences</h3>
+                       <ul>
+                        <li>EcoMart focuses on eco-friendly products, while Daraz offers a wide variety of items</li>
+                        <li>Daraz includes advanced features like filters, seller ratings, and delivery options</li>
+                        <li>EcoMart has a cleaner, minimal design compared to Daraz's more commercial layout</li>
+                        <li>Daraz uses bold colors and promotional banners to drive urgency, whereas EcoMart uses soft greens</li>
+                        <li>EcoMart lacks flash sale banners and dynamic carousels found on Daraz</li>
+                       </ul>
+                    </div>
+                </div>
+                <h2>Comparison Table</h2>
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Daraz Product Page</th>
+                        <th>EcoMart Product Page</th>
+                    </tr>
+                    <tr>
+                        <td>Layout</td>
+                        <td>Dynamic layout with carousels, flash sales, filters, and promotional banners</td>
+                        <td>Clean grid layout with product images, names, prices, and discounts</td>
+                    </tr>
+                    <tr>
+                        <td>Platform Type</td>
+                        <td>Multi-vendor marketplace</td>
+                        <td>Single-vendor eco-friendly marketplace</td>
+                    </tr>
+                    <tr>
+                        <td>Product Info</td>
+                        <td>Detailed specs, reviews, seller info, delivery options, and multiple price comparisons</td>
+                        <td>Basic details: name, original price, discounted price, percentage off</td>
+                    </tr>
+                    <tr>
+                        <td>Design Focus</td>
+                        <td>Commercial design with bold colors, delivery options, and high-volume product display</td>
+                        <td>Eco-friendly branding, soft colors, minimal distractions</td>
+                    </tr>
+                    <tr>
+                        <td>Audience Target</td>
+                        <td>Mass-market consumers seeking deals, variety, and fast delivery</td>
+                        <td>Eco-conscious shoppers looking for sustainable products</td>
+                    </tr>
+                    <tr>
+                        <td>Trust Elements</td>
+                        <td>Customer reviews, seller ratings, and delivery guarantees</td>
+                        <td>Product certifications, eco-friendly labels, and sustainability reports</td>
+                    </tr>
+                </table>
+                <div class="centered-content" style="margin-top: 30px;">
+                    <div class="research-content">
+                        <h3>Implementation</h3>
+                        <p>In conclusion, while both EcoMart and Daraz function as e-commerce platforms with similar product listing structures, they differ significantly in purpose, design, and user experience. EcoMart emphasizes sustainability, minimalism, and conscious consumerism, creating a calm and focused shopping environment, whereas Daraz prioritizes variety, aggressive promotions, and high-volume sales to attract a mass-market audience. By selectively adopting effective features from Daraz such as user reviews, improved filtering, and subtle promotional cues, EcoMart can enhance usability and customer trust without compromising its eco-friendly brand identity. This balanced approach allows EcoMart to strengthen engagement and conversions while remaining aligned with its core mission of promoting sustainable living.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Page comparison between EcoMart and Code IT -->
+        <section>
+            <div class="main">
+                <h2>Blog Page</h2>
+                <div class="image-section">
+                    <div class="image-box">
+                        <img src="../Assets/images/research/referencesblogpage.png" alt="Reference Design">
+                        <h3>Reference Website</h3>
+                        <a href="https://codeit.com.np/blogs" target="_blank">View Reference</a>
+                    </div>
+                    <div class="image-box">
+                        <img src="../Assets/images/research/actualblogpage.png" alt="Actual Website">
+                        <h3>Actual Website</h3>
+                        <a href="./blog.html">View Actual</a>
+                    </div>
+                </div>
+                <div class="centered-content">
+                    <div class="research-content">
+                        <h3>Similarities</h3>
+                        <ul>
+                            <li>Both EcoMart and Code IT blogs aim to educate readers using well-structured articles.</li>
+                            <li>Each blog uses visual elements to make the content more engaging.</li>
+                            <li>Both platforms use their blogs to build authority and connect with their target audiences.</li>
+                            <li>Both focus on sharing knowledge relevant to their respective fields.</li>
+                            <li>Each blog supports its organization’s goals by building credibility and trust.</li>
+                        </ul>
+                    </div>
+                    <div class="research-content">
+                        <h3>Differences</h3>
+                        <ul>
+                            <li>EcoMart's blog focuses on sustainability and the impact of technology on eco-friendly living</li>
+                            <li>EcoMart content is general awareness-based, Code IT is career & skill-oriented</li>
+                            <li>EcoMart has positive & negative impact sections</li>
+                            <li>EcoMart connects blog content directly to its brand mission, while Code IT connects content to educational updates and announcements.</li>
+                            <li>EcoMart targets environmentally conscious consumers, whereas Code IT targets students and aspiring IT professionals.</li>
+                            <li>EcoMart's content supports eco-living and purchasing decisions, whereas Code IT's content supports skill development and job readiness.</li>
+                            <li>EcoMart combines blog + product promotion, Code IT is blog-only</li>
+                        </ul>
+                    </div>
+                </div>
+                <h2>Comparison Table</h2>
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Code IT Blogs Page</th>
+                        <th>EcoMart Blog Page</th>
+                    </tr>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Share IT learning, career tips, and course updates</td>
+                        <td>Promote sustainability and tech's eco impact</td>
+                    </tr>
+                    <tr>
+                        <td>Content Style</td>
+                        <td>List-style blog entries with dates and training highlights</td>
+                        <td>Informative articles with visuals and expandable sections</td>
+                    </tr>
+                    <tr>
+                        <td>Topics Covered</td>
+                        <td>Programming, web design, MERN brief summaries</td>
+                        <td>Tech's role in sustainability, product impact, eco tips</td>
+                    </tr>
+                    <tr>
+                        <td>Visual Layout</td>
+                        <td>Blog list with thumbnails, titles, and brief summaries</td>
+                        <td>Banner, featured articles, expandable tips, product showcase</td>
+                    </tr>
+                    <tr>
+                        <td>Target Audience</td>
+                        <td>Students and aspiring IT professionals</td>
+                        <td>Environmentally conscious consumers</td>
+                    </tr>
+                </table>
+                <div class="centered-content" style="margin-top: 30px;">
+                    <div class="research-content">
+                        <h3>Implementation</h3>
+                        <p>EcoMart's blog page is effectively implemented to promote sustainability by combining informative content with eco-friendly product showcases in a clean and user friendly layout. The integration of technology focused articles, sustainability insights, and product recommendations helps educate users while encouraging responsible purchasing behavior. Features such as categorized sections, visually appealing product cards, and clear call-to-action buttons enhance user engagement and navigation. Overall, the EcoMart blog successfully supports its mission of spreading environmental awareness and promoting sustainable living by blending educational content with practical solutions, making it a strong platform for both knowledge sharing and eco-conscious commerce.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Page comparison between EcoMart and Bela Nepal -->
+        <section>
+            <div class="main">
+                <h2>About Us Page</h2>
+                <div class="image-section">
+                    <div class="image-box">
+                        <img src="../Assets/images/research/referencesaboutpage.png" alt="Reference Design"
+                            style="height: auto; ">
+                        <h3>Reference Website</h3>
+                        <a href="https://belanepal.com.np/home/about-us/" target="_blank">View Reference</a>
+                    </div>
+                    <div class="image-box">
+                        <img src="../Assets/images/research/actualaboutpage.png" alt="Actual Website"
+                            style="height: auto;">
+                        <h3>Actual Website</h3>
+                        <a href="./about.html">View Actual</a>
+                    </div>
+                </div>
+                <div class="centered-content">
+                    <div class="research-content">
+                        <h3>Similarities</h3>
+                        <ul>
+                            <li>Both companies emphasize eco-friendly and sustainable practices in their operations and products.</li>
+                            <li>Each page clearly explains who they are, what they do, and their role in their respective industries.</li>
+                            <li>Both highlight a mission centered on creating long-term positive environmental impact.</li>
+                            <li>Both highlight a mission centered on creating long-term positive environmental impact.</li>
+                            <li>Both encourage reducing environmental impact through sustainable materials and practices.</li>
+                            <li>Background information, goals, and values are shared to build trust with users.</li>
+                        </ul>
+                      
+                    </div>
+                    <div class="research-content">
+                        <h3>Differences</h3>
+                       <ul>
+                        <li>EcoMart Sell eco-friendly products only while Bale Nepal ingorm about construction services and materials</li>
+                        <li>EcoMart focuses on retail and e-commerce while Bela Nepal focuses on construction and infrastructure</li>
+                        <li>EcoMart emphasizes product sustainability while Bela Nepal emphasizes construction sustainability</li>
+                        <li>EcoMart has a more digital presence while Bela Nepal has a more physical presence</li>
+                        <li>EcoMart targets consumers while Bela Nepal targets businesses and construction companies</li>
+                       </ul>
+                    </div>
+                </div>
+                <h2>Comparison Table</h2>
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Bela Nepal About Page</th>
+                        <th>EcoMart About Page</th>
+                    </tr>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Showcase eco-construction materials and modular housing solutions</td>
+                        <td>Promote eco-friendly products and tech-based sustainability</td>
+                    </tr>
+                    <tr>
+                        <td>Industry Focus</td>
+                        <td>Construction and prefabricated housing</td>
+                        <td>E-commerce for sustainable goods</td>
+                    </tr>
+                    <tr>
+                        <td>Technology Use</td>
+                        <td>EPS panels, modular builds, CGI roofing, steel structures</td>
+                        <td>HTML5, CSS, JS for clean, responsive design</td>
+                    </tr>
+                    <tr>
+                        <td>Team Showcase</td>
+                        <td>No team display</td>
+                        <td>Team members are showcased on card with their name and role</td>
+                    </tr>
+                    <tr>
+                        <td>Mission & Vision</td>
+                        <td>Affordable, durable, and sustainable housing for Nepal's future</td>
+                        <td>Eco-living through tech and product awareness</td>
+                    </tr>
+
+                </table>
+                <div class="centered-content">
+                    <div class="research-content" style="margin-top: 30px;">
+                        <h3>Implementation</h3>
+                    <p>EcoMart's About page successfully communicates its eco-friendly mission, values, and human-centered approach. Compared to a more industrial and corporate About page like Bela Nepal Industries, EcoMart stands out by being approachable, visually calming, and emotionally engaging. With minor improvements such as adding measurable impact, stronger CTAs, and credibility indicators. EcoMart's About page can become even more powerful in building trust, loyalty, and brand identity. Overall, EcoMart presents itself not just as an online store, but as a movement toward sustainable living</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section  -->
+    <footer>
+        <div class="footer-container wrapper">
+            <!-- Company Info Section -->
+            <div class="footer-section">
+                <h3>EcoMart</h3>
+                <p>Your trusted source for eco-friendly products. We're committed to sustainability, offering
+                    high-quality items that help reduce your environmental impact. Shop responsibly and make a
+                    difference!</p>
+                <div class="payment-methods">
+                    <h4>Payment Methods We Accept</h4>
+                    <div class="payment-icons">
+                        <i class="fa-solid fa-credit-card" title="creditcard"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i><button class="pay">esewa</button></i>
+                        <i><button class="pay">cash on delivery</button></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Itahari, Sunsari, Nepal</p>
+                <p><i class="fas fa-phone"></i> +977 9801988234, +977 9804913670</p>
+                <p><i class="fas fa-envelope"></i> info@ecomart.com</p>
+                <h4>Connect with us</h4>
+                <ul class="connect">
+                    <li><a href="https://www.linkedin.com/in/anamika-limbu-b01238340/"><i
+                                class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li><a href="https://github.com/Anamikalimbu"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
+            <!-- Help Section-->
+            <div class="footer-section help-section">
+                <h4>Help</h4>
+                <ul class="help-links">
+                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom wrapper">
+            <p>&copy; 2025 EcoMart. All rights reserved</p>
+        </div>
+    </footer>
+    <script>
+        // Select the hamburger icon, its inner <i> element, and mobile menu
+        const hamburger = document.querySelector('.hamburger');
+        const hamburgerIcon = document.querySelector('.hamburger i'); // Target the <i> inside the hamburger
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        // Add click event listener to hamburger
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior (href="")
+            mobileMenu.classList.toggle('mobile-menu-active'); // Toggle the active class to slide menu in/out
+
+            // Toggle the icon: bars when closed, X when open
+            if (mobileMenu.classList.contains('mobile-menu-active')) {
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-xmark');
+            } else {
+                hamburgerIcon.classList.remove('fa-xmark');
+                hamburgerIcon.classList.add('fa-bars');
+            }
+        });
+        // Cart counter
+        const cartValue = document.querySelector('.cart-value');
+        // Load cart count on page load
+        cartValue.textContent = localStorage.getItem('cartCount') || 0;
+    </script>
+</body>
+
+</html>

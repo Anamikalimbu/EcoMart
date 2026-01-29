@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manita Dhakal - Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #f4f7fa;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        /* About Section */
+        #about {
+            text-align: center;
+        }
+
+        #about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #about p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .skill {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            width: 300px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-details {
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #contactForm {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        #contactForm label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        #contactForm input,
+        #contactForm textarea {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        #contactForm input:focus,
+        #contactForm textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        #contactForm button {
+            background-color: #667eea;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        #contactForm button:hover {
+            background-color: #5a67d8;
+        }
+
+        #formMessage {
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .back_button {
+            width: 100px;
+            border-radius: 50px;
+            margin: 30px;
+            width: 80px;
+            height: 50px;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.8s ease;
+        }
+
+        .back_button:hover {
+            background-color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav a {
+                padding: 0.75rem 1rem;
+            }
+
+            .skills-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skill {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            #about img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Manita Dhakal</h1>
+        <p>Passionate IT Student | Exploring the Tech World</p>
+    </header>
+    <div class="backButton">
+        <a href='../HTML/about.html'>
+            <button class="back_button">
+                <i class="fa-solid fa-angles-left"></i>Back
+            </button>
+        </a>
+    </div>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#skills">My Skills</a>
+        <a href="#contact">Contact Me</a>
+    </nav>
+    <main>
+
+        <section id="about">
+            <h2>About Me</h2>
+
+            <img src="../Assets/images/photo/member3.png" alt="Profile picture of Manita Dhakal">
+            <p>Hello! I'm Manita Dhakal, a first-year BIT student at Itahari International College. I'm passionate about
+                exploring the IT industry and building innovative solutions. This portfolio showcases my journey,
+                skills, and projects.</p>
+        </section>
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="skills-container">
+                <div class="skill" onclick="toggleSkill(this)">
+                    <h3>HTML</h3>
+                    <p>Proficient in structuring web pages with semantic markup.</p>
+                    <div class="skill-details" style="display: none;">
+                        <p>I use HTML5 to create accessible and SEO-friendly websites.</p>
+                    </div>
+                </div>
+                <div class="skill" onclick="toggleSkill(this)">
+                    <h3>CSS</h3>
+                    <p>Skilled in styling and creating responsive designs.</p>
+                    <div class="skill-details" style="display: none;">
+                        <p>Experienced with Flexbox, Grid, and media queries for modern layouts.</p>
+                    </div>
+                </div>
+                <div class="skill" onclick="toggleSkill(this)">
+                    <h3>JavaScript</h3>
+                    <p>Experienced in adding interactivity and dynamic features.</p>
+                    <div class="skill-details" style="display: none;">
+                        <p>I build interactive web apps using ES6+ and frameworks like React.</p>
+                    </div>
+                </div>
+                <!-- Add more skills as needed -->
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Your Email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <p id="formMessage"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Manita Dhakal. First-year BIT student at Itahari International College, passionate about IT
+            innovation.</p>
+    </footer>
+    <script>
+        // Function to toggle skill details
+        function toggleSkill(skillElement) {
+            const details = skillElement.querySelector('.skill-details');
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const formMessage = document.getElementById('formMessage');
+
+            // Basic validation
+            if (!name || !email || !message) {
+                formMessage.textContent = 'Please fill in all fields.';
+                formMessage.style.color = 'red';
+                return;
+            }
+
+            // Simulate form submission (replace with actual backend integration)
+            formMessage.textContent = 'Thank you for your message! I\'ll get back to you soon.';
+            formMessage.style.color = 'green';
+
+            // Clear form
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+</body>
+
+</html>

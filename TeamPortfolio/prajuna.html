@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajuna Karki | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #fe95d6;
+            --primary-dark: #fc689c;
+            --bg-light: #fcf8fb;
+            --text-dark: #000000;
+            --accent: #10B981;
+            --card-bg: #FFFFFF;
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 2.1rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--text-dark);
+            text-align: center;
+            padding: 12px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.35s;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            color: var(--accent);
+        }
+
+        .navbar a.active {
+            color: var(--accent);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            background: var(--card-bg);
+            margin: 30px auto;
+            padding: 40px;
+            width: 85%;
+            max-width: 1000px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Skills */
+        .skills-list {
+            list-style: disc;
+        }
+
+        .skills-list li {
+            background-color: #ffb6e9;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: var(--radius);
+            color: var(--text-dark);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            border: 1px solid #e1cbe1;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-card {
+            background-color: #ffb6e9;
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .contact a {
+            display: block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .contact a:hover {
+            transform: translateY(-6px);
+            background: var(--primary-dark);
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Hobbies Grid */
+        .center {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .hobby-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+            color: var(--text-dark);
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-6px);
+            background: #fbbef6;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .back_button {
+            width: 100px;
+            border-radius: 50px;
+            margin: 30px;
+            width: 80px;
+            height: 50px;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.8s ease;
+        }
+
+        .back_button:hover {
+            background-color: #fbbef6;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Prajuna Karki</h1>
+        <p>Student</p>
+    </header>
+    <nav class="navbar">
+        <a href="#" class="active">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="backButton">
+        <a href='../HTML/about.html'>
+            <button class="back_button">
+                <i class="fa-solid fa-angles-left"></i>Back
+            </button>
+        </a>
+    </div>
+
+    <section class="home">
+        <div class="home-content">
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <h3>Hi!</h3>
+                <h1>I'm <span>Prajuna Karki<br></span>I'm a Student</h1>
+                <p>Hello! My name is <strong>Prajuna Karki</strong>. I am a student who is passionate about learning and
+                    <strong>coding</strong>. I am currently focused on my studies while developing interests in
+                    technology, creativity, and personal growth. I enjoy trying new things, working on small projects,
+                    and improving myself every day. I like improving my skills, trying out new ideas, and growing step
+                    by step. I'm excited to learn, connect with new people, and build a good future.</p>
+            </section>
+            <section id="education" class="section">
+                <h2>Education</h2>
+                <p>I have recently finished my +2 and I am currently studying BIT at <strong>Itahari International
+                        College</strong>. I am focused on developing my technical skills and preparing for a career in
+                    the IT field. I enjoy combining creativity with technology and exploring different fields to grow as
+                    a person.</p>
+            </section>
+            <section class="container">
+                <h2 class="center">My Hobbies & Interests 🎨</h2>
+                <div class="grid">
+                    <div class="hobby-card">Exploring</div>
+                    <div class="hobby-card">Photography</div>
+                    <div class="hobby-card">Coding</div>
+                    <div class="hobby-card">Gaming</div>
+                    <div class="hobby-card">Writing</div>
+                    <div class="hobby-card">Fitness</div>
+                </div>
+            </section>
+            <section id="skills" class="section">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li>Problem solving</li>
+                    <li>Creating Websites</li>
+                    <li>Coding</li>
+                    <li>Computer Science</li>
+                    <li>Programming</li>
+                </ul>
+            </section>
+            <section id="contact" class="section">
+                <h2>Contact Me</h2>
+                <p>Send a Mail to:</p>
+                <p>Email: Prajunakarki09@email.com</p>
+                <p>WhatsApp: 9804057579</p>
+                <div class="contact-card">
+                    <h3>GitHub</h3>
+                    <p>github.com/prajunakarki</p>
+                </div>
+            </section>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2026 This is a personal student portfolio</p>
+    </footer>
+
+    <script>
+        function showname() {
+            document.getElementById("name").innerText = "My name is Prajuna Karki";
+        }
+
+        const text = "Student ";
+        let index = 0;
+        document.getElementById("role").innerText = "";
+        function typeEffect() {
+            if (index < text.length) {
+                document.getElementById("role").innerText += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 80);
+            }
+        }
+        typeEffect();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+            });
+        });
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function contactMessage() {
+            alert("Thank you for visiting my portfolio!");
+        }
+    </script>
+</body>
+
+</html>

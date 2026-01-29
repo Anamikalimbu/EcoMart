@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            /* Black background */
+            color: #fff;
+            /* White text */
+        }
+
+        header {
+            background-color: #111;
+            /* Dark header */
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .back_button {
+            /* background: transparent; */
+            width: 100px;
+            border-radius: 50px;
+            margin: 30px;
+            width: 80px;
+            height: 50px;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.8s ease;
+        }
+
+        .back_button:hover {
+            background-color: #7e0b0b;
+        }
+
+        section {
+            padding: 2rem;
+            margin: 1rem;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backButton">
+        <a href='../HTML/about.html'>
+            <button class="back_button">
+                <i class="fa-solid fa-angles-left"></i>Back
+            </button>
+        </a>
+    </div>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="../Assets/images/photo/member2.png" alt="My Profile Picture"
+            style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 1rem;">
+        <p>Hello! My name is Kristina Baskota. Currently I am pursuring 1st year at iic in Bsc (hons) in computing.I am
+            a student who is interested in learning computer technology and web design. I am currently studying and
+            improving my skills in HTML and basic computer applications. I enjoy learning new things and working on
+            small projects.This is my simple portfolio.</p>
+        <button id="learn-more">Learn More</button>
+        <p id="more-info" style="display: none;">
+            Education level: completed +2.<br>
+            Skills: Basic HTML, MS Word, MS PowerPoint, Teamwork Presentation, Basic Website Design.<br>
+            Projects: Simple Personal Portfolio Website (HTML),Teamwork Presentation Project,MS Word and PowerPoint
+            Assignments.
+        </p>
+    </section>
+
+    <section id="contact">
+        <button id="contact-me">Contact Me</button>
+        <p id="contact-email" style="display: none;">Email: kristinabaskota@gmail.com</p>
+        <p id="contact-phone" style="display: none;">Phone no: 9804913670</p>
+    </section>
+
+    <script>
+
+        // Toggle "Learn More" info
+        document.getElementById('learn-more').addEventListener('click', function () {
+            const moreInfo = document.getElementById('more-info');
+            moreInfo.style.display = moreInfo.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Show contact info
+        document.getElementById('contact-me').addEventListener('click', function () {
+            document.getElementById('contact-email').style.display = 'block';
+            document.getElementById('contact-phone').style.display = 'block';
+        });
+        document.getElementById('learn-more').addEventListener('click', function () {
+            const edu = document.getElementById('education-info');
+            const skills = document.getElementById('skills-info');
+            const isHidden = edu.style.display === 'none';
+
+            edu.style.display = isHidden ? 'block' : 'none';
+            skills.style.display = isHidden ? 'block' : 'none';
+            PromiseRejectionEvent.style.display = isHidden ? 'block' : 'none';
+        });
+    </script>
+
+</body>
+
+</html>

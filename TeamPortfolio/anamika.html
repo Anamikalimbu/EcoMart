@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamika Limbu - Portfolio</title>
+    <!-- link to font/Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- style for the code  -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            background: linear-gradient(135deg, #f0f8f0, #e8f5e8);
+            padding-top: 80px;
+        }
+
+        .container {
+            width: 1170px;
+            margin: auto;
+        }
+
+        /* Header */
+        .header-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 25px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: padding 0.3s;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            position: relative;
+            text-transform: uppercase;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .logo .fa-bolt {
+            color: #7e0b0b;
+            font-size: 19.5px;
+            position: absolute;
+            top: 60%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .signature {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .header ul.navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .header ul.navbar li {
+            margin: 0 15px;
+        }
+
+        .header ul.navbar li a {
+            text-transform: capitalize;
+            display: block;
+            text-decoration: none;
+        }
+
+        .header ul.navbar li a.active {
+            color: #7e0b0b;
+        }
+
+        .header ul.navbar li a:hover {
+            color: #7e0b0b;
+        }
+
+        .header .menu_icon {
+            color: black;
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        /* Home Page */
+        .back_button {
+            width: 100px;
+            border-radius: 50px;
+            margin: 30px;
+            width: 80px;
+            height: 50px;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.8s ease;
+        }
+
+        .back_button:hover {
+            background-color: #7e0b0b
+        }
+
+        .FirstElement {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 5rem;
+        }
+
+        .FirstElement.adjusted-padding {
+            padding-top: 40px;
+        }
+
+        .FirstElement .profile-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .FirstElement .profile-photo img:hover {
+            transform: scale(1.2);
+        }
+
+        .profile-text {
+            max-width: 750px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-text h5 {
+            color: #333;
+            font-size: 14px;
+        }
+
+        .profile-text h1 {
+            color: #7e0b0b;
+            font-size: 3rem;
+        }
+
+        .profile-text p {
+            color: black;
+        }
+
+        .profile-text .social i {
+            color: black;
+            font-size: 18px;
+            margin-right: 10px;
+            transition: 0.5s;
+        }
+
+        .profile-text .social i:hover {
+            color: #7e0b0b;
+            transform: rotate(360deg);
+        }
+
+        /* About Section */
+        .about-area {
+            padding-top: 130px;
+            
+        }
+
+        .about {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .about-content {
+            flex-basis: 60%;
+        }
+
+        .text {
+            color: #7e0b0b;
+            text-align: center;
+            justify-content: center;
+            font-size: 40px;
+            line-height: 70px;
+            text-transform: capitalize;
+        }
+
+        .about-content ul {
+            color: black;
+            text-align: justify;
+        }
+
+        .about-content ul li {
+            list-style-type: disc;
+            margin-bottom: 10px;
+        }
+
+        .about-skills {
+            flex-basis: 35%;
+        }
+
+        .about-skills ul li {
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            color: black;
+            font-size: 18px;
+        }
+
+        .about-skills ul li:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        /* Button */
+        .btn-group {
+            margin: 45px 0;
+        }
+
+        .btn-group .btn {
+            border-color: #ddd;
+            color: black;
+            background-color: #f9f9f9;
+            padding: 12px 25px;
+            margin: 5px 0;
+            margin-right: 7px;
+            border-radius: 30px;
+            border: 2px solid #7e0b0b;
+            box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+        }
+
+        .btn:hover {
+            color: #f9f9f9;
+            background-color: #7e0b0b;
+            border-color: #080808;
+        }
+
+        .btn.active {
+            border-color: #7e0b0b;
+        }
+
+        .btn.active:hover {
+            background-color: #7e0b0b;
+            color: #f9f9f9;
+            border-color: #080808;
+        }
+
+        /* Education Section */
+        .education-content .row {
+            border-radius: 5px;
+            height: 400px;
+            margin-bottom: 250px;
+            width: 100%;
+        }
+
+        .education-content .title {
+            color: #7e0b0b;
+        }
+
+        .education-content .row .education {
+            color: black;
+            flex: 0 0 50%;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .education-content h3.title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+            color: #7e0b0b;
+            font-size: 40px;
+        }
+
+        .education-content .row.timeline-box {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .education-content .row .timeline {
+            padding: 30px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 100%;
+            position: relative;
+        }
+
+        .education-content .row .timeline-item {
+            position: relative;
+            padding-left: 37px;
+            padding-bottom: 50px;
+        }
+
+        .education-content .row .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .education-content .row .timeline-item::before {
+            content: "";
+            width: 1px;
+            position: absolute;
+            height: 100%;
+            left: 7px;
+            top: 0;
+            background-color: #7e0b0b;
+        }
+
+        .education-content .row .circle-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        .education-content .row .timeline-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .education-content .row .timeline-text {
+            line-height: 25px;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        /* Skills and Experience Grid */
+        #skills {
+            padding: 20px 0;
+        }
+
+        #skills h1 {
+            text-align: center;
+            color: #7e0b0b;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .border-line {
+            width: 100px;
+            height: 3px;
+            background-color: #7e0b0b;
+            margin: 0 auto 40px;
+        }
+
+        .skills-experience {
+            padding: 20px;
+        }
+
+        .skills-experience h2 {
+            color: #7e0b0b;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .skills-grid,
+        .experience-grid {
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .item {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .item:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .item h3 {
+            color: #7e0b0b;
+            margin-bottom: 10px;
+        }
+
+        .item ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .item li {
+            margin-bottom: 5px;
+        }
+
+        /* Contact Me Section */
+        .contact-content {
+            padding: 100px 0;
+            color: black;
+            text-align: center;
+        }
+
+        .contact-content .contact-title h4 {
+            font-size: 40px;
+            text-transform: capitalize;
+            color: #7e0b0b;
+            padding-bottom: 10px;
+        }
+
+        .contact-content .contact-title p {
+            padding-bottom: 20px;
+        }
+
+        .contact {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            background-color: white;
+            color: black;
+        }
+
+        .contact .submit {
+            width: auto;
+            background-color: #ffffff;
+            padding: 10px 40px;
+            font-weight: bold;
+            font-size: 18px;
+            border: none;
+            color: #080808;
+            border-radius: 30px;
+            border: 2px solid #7e0b0b;
+        }
+
+        .contact .submit:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+            color: #f9f9f9;
+            background-color: #7e0b0b;
+            border: 2px solid #080808;
+        }
+
+        #msg {
+            color: black;
+            font-size: 20px;
+            margin-top: -8px;
+            display: block;
+        }
+
+        /* Footer Section */
+        .footer {
+            width: 100%;
+            margin: 0 auto;
+            padding: 15px 0 26px;
+            border-top: 0px solid rgba(0, 0, 0, 0.1);
+            color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+        }
+
+        .footer .message {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.4);
+            margin-bottom: 10px;
+        }
+
+        .social-icons li {
+            display: inline;
+            margin: 10px;
+        }
+
+        .social-icons i {
+            font-size: 1.5rem;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .social-icons i:hover {
+            color: #7e0b0b;
+        }
+
+        .copyright {
+            font-size: 12px;
+        }
+
+        /* Responsive Design */
+        /* Tablet (781px to 1024px) */
+        @media only screen and (min-width: 781px) and (max-width: 1024px) {
+            .container {
+                width: 768px;
+            }
+
+            .FirstElement {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 3rem;
+            }
+
+            .profile-text {
+                max-width: 600px;
+                margin-top: 20px;
+            }
+
+            .profile-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .about-content,
+            .about-skills {
+                flex-basis: 100%;
+                margin-top: 20px;
+            }
+
+            .education-content .row {
+                height: auto;
+                margin-bottom: 100px;
+            }
+
+            .skills-grid,
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact {
+                max-width: 600px;
+            }
+        }
+
+        /* Mobile (max-width: 768px) */
+        @media only screen and (max-width: 768px) {
+            .container {
+                width: 350px;
+            }
+
+            .header .menu_icon {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                position: absolute;
+                top: 20%;
+                left: -100%;
+                transform: translateX(-50%);
+                width: 20rem;
+                padding: 2rem;
+                background-color: #ffffff;
+                border: 0.1rem solid #7e0b0b;
+                border-radius: 2rem;
+                box-shadow: rgb(0, 0, 0, 0.05) 8px 8px 8px, rgb(0, 0, 0, 0.05) 8px 8px 8px inset;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .mobile-menu-active {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .mobile-menu li a:hover {
+                color: #7e0b0b;
+                text-decoration: underline;
+            }
+
+            .header ul.navbar {
+                display: none;
+            }
+
+            .header i {
+                color: black;
+            }
+
+            .profile-text {
+                width: 350px;
+            }
+
+            .FirstElement .profile-text p {
+                text-align: justify;
+            }
+
+            .about {
+                flex-direction: column;
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
+
+            .about-skills {
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            .education-content .row {
+                flex-direction: column;
+                height: auto;
+                margin-bottom: 50px;
+            }
+
+            .education-content .row .education,
+            .education-content .row .internship {
+                flex-basis: 100%;
+                max-width: 100%;
+                margin-top: 30px;
+            }
+
+            .skills-grid,
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--Header Area -->
+    <header class="header-area">
+        <nav>
+            <!-- desktop version -->
+            <div class="container">
+                <div class="header">
+                    <a href="" class="logo">
+                        <img src="../Assets/images/photo/logo.png" alt="signature" class="signature">
+                        <i class="fa fa-bolt"></i>
+                    </a>
+                    <ul class="navbar">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#skills">Skill/Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="menu_icon">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile version  -->
+            <ul class="mobile-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Home Page-->
+    <section>
+        <div class="backButton">
+            <a href='../HTML/about.html'>
+                <button class="back_button">
+                    <i class="fa-solid fa-angles-left"></i>Back
+                </button>
+            </a>
+        </div>
+        <div class="FirstElement" id="home">
+            <div class="profile-photo">
+                <img src="../Assets/images/photo/member1.png" alt="profile picture">
+            </div>
+            <div class="profile-text">
+                <h5>Hi I'm </h5><br>
+                <h1>Anamika Limbu</h1><br>
+                <p>Welcome to my portfolio website! I'm Dedicated and curious learner with a strong interest in
+                    technology, programming, and digital tools. I enjoy exploring how things work, building my skills,
+                    and improving my understanding through continuous learning. I am committed to personal and academic
+                    growth, and I strive to approach every task with focus, clarity, and a positive mindset.</p>
+                <div class="btn-group">
+                    <a href="https://drive.google.com/file/d/1VN3uyHzF-eeTXfV07eZa78xHGoFuSWyH/view?usp=sharing"
+                        target="_blank" class="btn active">Download CV</a>
+                    <a href="mailto:anamikalimbu8@gmail.com" class="btn">Contact</a>
+                </div>
+                <div class="social">
+                    <a href="mailto:anamikalimbu8@gmail.com"><i class="fa fa-envelope"></i></a>
+                    <a href=""><i class="fa-brands fa-github"></i></a>
+                    <a href=""><i class="fa fa-code"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--About Section -->
+    <section class="about-area" id="about">
+        <div class="container">
+            <h4 class="text">About Me</h4>
+            <div class="border-line"></div>
+            <div class="about">
+                <div class="about-content">
+                    <ul>
+                        <li>I am currently a 1st year Bachelor of (hons) computing students with a strong interest in
+                            software and technology.I am in a progress of building a solid foundation in a core of
+                            computing concepts.</li>
+                        <li>Passionate about learning how software works and excited to grow more skills. I belive in
+                            continuous learning and always look for opportunities to expand my knowledge.</li>
+                        <li>I enjoy learning coding with working on small projects that help me to improve my coding
+                            abilites and understand real-world applications. Eager to explore new tools, languages, and
+                            technologies as i progress through my academic journey. </li>
+                    </ul>
+                </div>
+                <div class="about-skills">
+                    <ul>
+                        <li>Name:Anamika Limbu</li>
+                        <li>Age:18</li>
+                        <li>From:Nepal</li>
+                        <li>Email:anamikalimbu8@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Education-->
+    <section class="education-content" id="education">
+        <div class="container">
+            <div class="row">
+                <div class="education ">
+                    <h3 class="title">Education</h3>
+                    <div class="border-line"></div>
+                    <div class="row">
+                        <div class="timeline-box">
+                            <div class="timeline">
+                                <!-- Timeline-item -->
+                                <div class="timeline-item">
+                                    <div class="circle-dot"></div>
+                                    <h3 class="timeline-title">
+                                        Bachelor of(hons)Computing
+                                    </h3>
+                                    <h4 class="timeline-title">Itahari International College</h4>
+                                    <h4 class="timeline-title">
+                                        <i class="fa fa-calendar"></i> 2025-Present
+                                    </h4>
+                                </div>
+                                <!-- Timeline-item -->
+                                <div class="timeline-item">
+                                    <div class="circle-dot"></div>
+                                    <h3 class="timeline-title">+2-84.25%</h3>
+                                    <h4 class="timeline-title">Depot Secondary School</h4>
+                                    <h4 class="timeline-title">
+                                        <i class="fa fa-calendar"></i> 2023-2025
+                                    </h4>
+                                </div>
+                                <!-- Timeline-item -->
+                                <div class="timeline-item">
+                                    <div class="circle-dot"></div>
+                                    <h3 class="timeline-title">
+                                        School
+                                    </h3>
+                                    <h4 class="timeline-title">Depot Secondary School</h4>
+                                    <h4 class="timeline-title">
+                                        <i class="fa fa-calendar"></i> 2018-2023
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SKILLS/EXPERIENCE -->
+    <section class="container" id="skills">
+        <h1 class="text-center">Skills/Experience</h1>
+        <div class="border-line"></div>
+        <div class="skills-experience">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="item">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>C</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Bootstrap Framework</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>Tools & Technologies</h3>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>Visual Studio Code</li>
+                        <li>MS Word, PowerPoint</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Problem Solving</li>
+                        <li>Teamwork</li>
+                        <li>Time management</li>
+                        <li>Positive attitude</li>
+                        <li>Active listening</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-box">
+                <h2>Experience</h2>
+                <div class="experience-grid">
+                    <div class="item">
+                        <h3>Volunteer</h3>
+                        <ul>
+                            <li>Assisted in managing school events</li>
+                            <li>Supported teachers and coordinators during programs</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <h3>Member | Interact Club Of Depot School</h3>
+                        <ul>
+                            <li>Participated in community service projects</li>
+                            <li>Helped organize club events</li>
+                            <li>Collaborated with team members on social work</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Contact Me -->
+    <section class="contact-content" id="contact">
+        <div class="container">
+            <div class="contact-title">
+                <h4>Contact Me</h4>
+                <div class="border-line"></div>
+                <p>Get In Touch</p>
+            </div>
+            <div class="contact">
+                <form name="submitToGoogleSheet">
+                    <input type="text" name="NAME" placeholder="Name" required>
+                    <input type="email" name="EMAIL" placeholder="Email" required>
+                    <textarea name="MESSAGE" placeholder="Message"></textarea>
+                    <input type="submit" value="Send Message" class="submit">
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </section>
+    <!-- Footer section-->
+    <footer class="footer">
+        <ul class="social-icons">
+            <li><a target="_blank" href="https://www.facebook.com/anamikalimbu006"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li><a target="_blank" href="https://www.instagram.com/anamikalimbu006/"><i
+                        class="fab fa-instagram"></i></a></li>
+            <li><a target="_blank" href="https://github.com/Anamikalimbu"><i class="fab fa-github"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/anamika-limbu-b01238340/"><i
+                        class="fab fa-linkedin"></i></a></li>
+        </ul>
+        <small class="copyright">&copy; Anamika Limbu 2025. All rights reserved.</small>
+    </footer>
+    <!-- Js code for functionality -->
+    <script>
+        // Menu script for mobile
+        const menuIcon = document.querySelector(".menu_icon");
+        const menu = document.querySelector(".menu_icon i");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        if (menuIcon) {
+            menuIcon.addEventListener("click", (e) => {
+                e.preventDefault();
+                mobileMenu.classList.toggle("mobile-menu-active");
+                if (mobileMenu.classList.contains("mobile-menu-active")) {
+                    menu.classList.remove("fa-bars");
+                    menu.classList.add("fa-xmark");
+                } else {
+                    menu.classList.remove("fa-xmark");
+                    menu.classList.add("fa-bars");
+                }
+            });
+        }
+        // Sticky header and active section update
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 1) {
+                $(".header-area").addClass("sticky");
+            } else {
+                $(".header-area").removeClass("sticky");
+            }
+            // Update the active section in the header
+            updateActiveSection();
+        });
+        $(".header ul li a").click(function (e) {
+            e.preventDefault();
+
+            var target = $(this).attr("href");
+
+            if ($(target).hasClass("active-section")) {
+                return;
+            }
+            if (target === "#home") {
+                $("html, body").animate(
+                    {
+                        scrollTop: 0,
+                    },
+                    500
+                );
+            } else {
+                var offset = $(target).offset().top - 40;
+
+                $("html, body").animate(
+                    {
+                        scrollTop: offset,
+                    },
+                    500
+                );
+            }
+            $(".header ul li a").removeClass("active");
+            $(this).addClass("active");
+        });
+        // Initial content revealing js
+        ScrollReveal({
+            distance: "100px",
+            duration: 2000,
+            delay: 200,
+        });
+        ScrollReveal().reveal(".header a, .profile-photo, .about-content, .education", {
+            origin: "left",
+        });
+        ScrollReveal().reveal(".header ul, .profile-text, .about-skills, .internship", {
+            origin: "right",
+        });
+        ScrollReveal().reveal(".project-title, .contact-title", {
+            origin: "top",
+        });
+        ScrollReveal().reveal(".projects, .contact", {
+            origin: "bottom",
+        });
+        //contact form submission locally
+        const form = document.querySelector('form[name="submitToGoogleSheet"]');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = form.NAME.value;
+            const email = form.EMAIL.value;
+            const message = form.MESSAGE.value;
+
+            // Basic validation (optional)
+            if (!name || !email || !message) {
+                document.getElementById('msg').innerText = 'Please fill in all fields.';
+                return;
+            }
+            // Simulate sending 
+            console.log('Form submitted:', { name, email, message });
+            // Display success message
+            document.getElementById('msg').innerText = 'Thank you for your message! We will get back to you soon.';
+            // Reset the form
+            form.reset();
+        });
+
+        function updateActiveSection() {
+            var scrollPosition = $(window).scrollTop();
+            // Checking if scroll position is at the top of the page
+            if (scrollPosition === 0) {
+                $(".header ul li a").removeClass("active");
+                $(".header ul li a[href='#home']").addClass("active");
+                return;
+            }
+            // Iterate through each section and update the active class in the header
+            $("section").each(function () {
+                var target = $(this).attr("id");
+                var offset = $(this).offset().top;
+                var height = $(this).outerHeight();
+                if (
+                    scrollPosition >= offset - 40 &&
+                    scrollPosition < offset + height - 40
+                ) {
+                    $(".header ul li a").removeClass("active");
+                    $(".header ul li a[href='#" + target + "']").addClass("active");
+                }
+            });
+        }
+    </script>
+</body>
